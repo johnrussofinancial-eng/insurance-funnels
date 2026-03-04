@@ -1,56 +1,186 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="UTF-8">
-    <title>Federal Benefits Review</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <style>
-        body {
-            margin: 0;
-            font-family: Arial, sans-serif;
-            background-color: #f5f7fa;
-            color: #1b1f23;
-        }
-        .hero {
-            background-color: #0A1F44;
-            color: white;
-            padding: 80px 20px;
-            text-align: center;
-        }
-        .hero h1 {
-            font-size: 32px;
-            margin-bottom: 20px;
-        }
-        .hero p {
-            font-size: 18px;
-            margin-bottom: 30px;
-        }
-        .btn {
-            padding: 12px 24px;
-            background-color: #C9A227;
-            color: white;
-            text-decoration: none;
-            border-radius: 4px;
-            font-weight: bold;
-        }
-        .section {
-            padding: 40px 20px;
-            text-align: center;
-        }
-    </style>
+<meta charset="UTF-8">
+<title>Federal Retirement Readiness Quiz</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f4f6f9;
+    color: #1b1f23;
+}
+
+.container {
+    max-width: 650px;
+    margin: 60px auto;
+    padding: 20px;
+    text-align: center;
+}
+
+h1 {
+    color: #0A1F44;
+}
+
+.question {
+    display: none;
+}
+
+.active {
+    display: block;
+}
+
+button {
+    display: block;
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    border: none;
+    border-radius: 5px;
+    background-color: #C9A227;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+button:hover {
+    opacity: 0.9;
+}
+
+.progress {
+    height: 8px;
+    background: #ddd;
+    border-radius: 4px;
+    margin-bottom: 20px;
+}
+
+.progress-bar {
+    height: 8px;
+    width: 0%;
+    background: #0A1F44;
+    border-radius: 4px;
+}
+</style>
 </head>
+
 <body>
 
-<div class="hero">
-    <h1>Are Your Federal Benefits Structured Correctly?</h1>
-    <p>FERS. TSP. Survivor Benefits. Get clarity in 60 seconds.</p>
-    <a href="#review" class="btn">Start My Federal Review</a>
+<div class="container">
+
+<h1>Federal Employee Retirement Quiz</h1>
+<p>Answer 6 quick questions to see if you're truly retirement ready.</p>
+
+<div class="progress">
+    <div class="progress-bar" id="progressBar"></div>
 </div>
 
-<div class="section" id="review">
-    <h2>Federal Employee Benefits Check</h2>
-    <p>This review helps identify gaps in your retirement and income protection strategy.</p>
+<!-- Question 1 -->
+<div class="question active" id="q1">
+<h3>1️⃣ Are you currently a federal employee?</h3>
+<button onclick="next(1)">Yes – FERS</button>
+<button onclick="next(1)">Yes – CSRS</button>
+<button onclick="next(1)">Yes – Military / Federal Hybrid</button>
+<button onclick="disqualify()">No (This offer is for federal employees only)</button>
 </div>
+
+<!-- Question 2 -->
+<div class="question" id="q2">
+<h3>2️⃣ How many years of federal service do you have?</h3>
+<button onclick="next(2)">0–5 years</button>
+<button onclick="next(2)">6–15 years</button>
+<button onclick="next(2)">16–25 years</button>
+<button onclick="next(2)">25+ years</button>
+</div>
+
+<!-- Question 3 -->
+<div class="question" id="q3">
+<h3>3️⃣ When are you planning to retire?</h3>
+<button onclick="next(3)">Within 1–3 years</button>
+<button onclick="next(3)">3–7 years</button>
+<button onclick="next(3)">7+ years</button>
+<button onclick="next(3)">Not sure yet</button>
+</div>
+
+<!-- Question 4 -->
+<div class="question" id="q4">
+<h3>4️⃣ Do you feel confident you understand your:</h3>
+<button onclick="next(4)">FERS/CSRS pension</button>
+<button onclick="next(4)">TSP withdrawal strategy</button>
+<button onclick="next(4)">FEGLI options</button>
+<button onclick="next(4)">FEHB in retirement</button>
+<button onclick="next(4)">I’m honestly not sure</button>
+</div>
+
+<!-- Question 5 -->
+<div class="question" id="q5">
+<h3>5️⃣ Have you had a personalized federal retirement analysis done?</h3>
+<button onclick="next(5)">Yes</button>
+<button onclick="next(5)">No</button>
+<button onclick="next(5)">I’ve only attended a seminar/webinar</button>
+</div>
+
+<!-- Question 6 -->
+<div class="question" id="q6">
+<h3>6️⃣ Would you like a complimentary federal retirement review?</h3>
+<button onclick="goToCalendly()">Yes – I want to schedule my review</button>
+<button onclick="next(6)">Maybe – I’d like more information</button>
+<button onclick="endQuiz()">Not right now</button>
+</div>
+
+<!-- Result Screen -->
+<div class="question" id="result">
+<h3>You're Closer Than You Think.</h3>
+<p>Many federal employees discover income gaps or missed strategies when reviewing FERS, TSP, and benefit coordination.</p>
+<button onclick="goToCalendly()">Schedule My Federal Review</button>
+</div>
+
+<!-- Disqualified -->
+<div class="question" id="disqualified">
+<h3>This Quiz Is For Federal Employees Only</h3>
+<p>If you're not currently a federal employee, this review isn't applicable.</p>
+</div>
+
+</div>
+
+<script>
+
+let current = 1;
+
+function updateProgress() {
+    let percent = (current - 1) / 6 * 100;
+    document.getElementById("progressBar").style.width = percent + "%";
+}
+
+function next(step) {
+    document.getElementById("q" + current).classList.remove("active");
+    current++;
+    if (current <= 6) {
+        document.getElementById("q" + current).classList.add("active");
+    } else {
+        document.getElementById("result").classList.add("active");
+    }
+    updateProgress();
+}
+
+function disqualify() {
+    document.getElementById("q1").classList.remove("active");
+    document.getElementById("disqualified").classList.add("active");
+}
+
+function endQuiz() {
+    document.getElementById("q6").classList.remove("active");
+    document.getElementById("result").classList.add("active");
+}
+
+function goToCalendly() {
+    window.location.href = "https://calendly.com/YOUR-LINK-HERE";
+}
+
+updateProgress();
+
+</script>
 
 </body>
 </html>
