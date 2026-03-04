@@ -49,6 +49,14 @@ button:hover {
     opacity: 0.9;
 }
 
+select {
+    width: 100%;
+    padding: 12px;
+    margin: 15px 0;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
 .progress {
     height: 8px;
     background: #ddd;
@@ -61,6 +69,12 @@ button:hover {
     width: 0%;
     background: #0A1F44;
     border-radius: 4px;
+}
+
+.footer {
+    margin-top: 40px;
+    font-size: 12px;
+    color: #555;
 }
 </style>
 </head>
@@ -76,18 +90,65 @@ button:hover {
     <div class="progress-bar" id="progressBar"></div>
 </div>
 
-<!-- STATE GATE -->
+<!-- STATE DROPDOWN -->
 <div class="question active" id="q0">
-<h3>Are you located in one of our licensed states?</h3>
-<button onclick="next('MO')">Missouri (MO)</button>
-<button onclick="next('AZ')">Arizona (AZ)</button>
-<button onclick="next('UT')">Utah (UT)</button>
-<button onclick="next('MS')">Mississippi (MS)</button>
-<button onclick="next('IN')">Indiana (IN)</button>
-<button onclick="next('WA')">Washington (WA)</button>
-<button onclick="next('TX')">Texas (TX)</button>
-<button onclick="next('MD')">Maryland (MD)</button>
-<button onclick="disqualify()">Other</button>
+<h3>What state are you currently located in?</h3>
+
+<select id="stateSelect">
+<option value="">Select Your State</option>
+<option>Alabama</option>
+<option>Alaska</option>
+<option>Arizona</option>
+<option>Arkansas</option>
+<option>California</option>
+<option>Colorado</option>
+<option>Connecticut</option>
+<option>Delaware</option>
+<option>Florida</option>
+<option>Georgia</option>
+<option>Hawaii</option>
+<option>Idaho</option>
+<option>Illinois</option>
+<option>Indiana</option>
+<option>Iowa</option>
+<option>Kansas</option>
+<option>Kentucky</option>
+<option>Louisiana</option>
+<option>Maine</option>
+<option>Maryland</option>
+<option>Massachusetts</option>
+<option>Michigan</option>
+<option>Minnesota</option>
+<option>Mississippi</option>
+<option>Missouri</option>
+<option>Montana</option>
+<option>Nebraska</option>
+<option>Nevada</option>
+<option>New Hampshire</option>
+<option>New Jersey</option>
+<option>New Mexico</option>
+<option>New York</option>
+<option>North Carolina</option>
+<option>North Dakota</option>
+<option>Ohio</option>
+<option>Oklahoma</option>
+<option>Oregon</option>
+<option>Pennsylvania</option>
+<option>Rhode Island</option>
+<option>South Carolina</option>
+<option>South Dakota</option>
+<option>Tennessee</option>
+<option>Texas</option>
+<option>Utah</option>
+<option>Vermont</option>
+<option>Virginia</option>
+<option>Washington</option>
+<option>West Virginia</option>
+<option>Wisconsin</option>
+<option>Wyoming</option>
+</select>
+
+<button onclick="submitState()">Continue</button>
 </div>
 
 <!-- Q1 -->
@@ -96,7 +157,7 @@ button:hover {
 <button onclick="next('FERS')">Yes – FERS</button>
 <button onclick="next('CSRS')">Yes – CSRS</button>
 <button onclick="next('Hybrid')">Yes – Military / Hybrid</button>
-<button onclick="disqualify()">No</button>
+<button onclick="next('No')">No</button>
 </div>
 
 <!-- Q2 -->
@@ -143,17 +204,15 @@ button:hover {
 <button onclick="showResult()">Not right now</button>
 </div>
 
-<!-- RESULT -->
 <div class="question" id="result">
 <h3>Your Retirement Strategy May Have Gaps</h3>
 <p>Many federal employees miss optimization opportunities in pension coordination, TSP strategy, and benefit timing.</p>
 <button onclick="goToCalendly()">Schedule My Review</button>
 </div>
 
-<!-- DISQUALIFIED -->
-<div class="question" id="disqualified">
-<h3>This Assessment Is Limited To Licensed States</h3>
-<p>We currently provide federal retirement reviews only in MO, AZ, UT, MS, IN, WA, TX, and MD.</p>
+<div class="footer">
+Retirement strategy consultations are educational in nature. 
+Product recommendations are subject to state licensing and suitability requirements.
 </div>
 
 </div>
@@ -177,9 +236,15 @@ function updateProgress() {
     document.getElementById("progressBar").style.width = percent + "%";
 }
 
+function submitState() {
+    let selectedState = document.getElementById("stateSelect").value;
+    if (!selectedState) return alert("Please select your state.");
+    answers.state = selectedState;
+    next();
+}
+
 function next(answer) {
 
-    if (current === 0) answers.state = answer;
     if (current === 1) answers.employeeType = answer;
     if (current === 2) answers.yearsService = answer;
     if (current === 3) answers.retirementTimeline = answer;
@@ -194,11 +259,6 @@ function next(answer) {
     }
 
     updateProgress();
-}
-
-function disqualify() {
-    document.getElementById("q" + current).classList.remove("active");
-    document.getElementById("disqualified").classList.add("active");
 }
 
 function showResult() {
