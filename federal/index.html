@@ -268,15 +268,32 @@ function showResult() {
 
 function goToCalendly() {
 
-    let calendlyURL = "https://calendly.com/YOUR-LINK-HERE?" +
-        "state=" + encodeURIComponent(answers.state) +
-        "&employeeType=" + encodeURIComponent(answers.employeeType) +
-        "&yearsService=" + encodeURIComponent(answers.yearsService) +
-        "&retirementTimeline=" + encodeURIComponent(answers.retirementTimeline) +
-        "&confidenceArea=" + encodeURIComponent(answers.confidenceArea) +
-        "&priorAnalysis=" + encodeURIComponent(answers.priorAnalysis);
+    const webhookURL = "https://hook.us2.make.com/ajxm62qqkaesi1oyglotr4cic8mu5mrv";
 
-    window.location.href = calendlyURL;
+    const payload = {
+        timestamp: new Date().toISOString(),
+        state: answers.state,
+        employeeType: answers.employeeType,
+        yearsService: answers.yearsService,
+        retirementTimeline: answers.retirementTimeline,
+        confidenceArea: answers.confidenceArea,
+        priorAnalysis: answers.priorAnalysis,
+        funnel: "Federal"
+    };
+
+    fetch(webhookURL, {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(payload)
+    })
+    .then(() => {
+        window.location.href = "https://calendly.com/johnrussofinancial/30min";
+    })
+    .catch(() => {
+        window.location.href = "https://calendly.com/johnrussofinancial/30min";
+    });
 }
 
 updateProgress();
