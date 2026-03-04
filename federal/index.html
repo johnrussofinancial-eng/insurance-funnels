@@ -5,6 +5,22 @@
 <title>Federal Retirement Readiness Quiz</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+<!-- Meta Pixel Placeholder -->
+<!-- Replace YOUR_META_PIXEL_ID -->
+<script>
+/* Meta Pixel Code Goes Here */
+</script>
+
+<!-- Pinterest Tag Placeholder -->
+<script>
+/* Pinterest Tag Code Goes Here */
+</script>
+
+<!-- Google Tag Placeholder -->
+<script>
+/* Google Tag (gtag.js) Goes Here */
+</script>
+
 <style>
 body {
     margin: 0;
@@ -14,8 +30,8 @@ body {
 }
 
 .container {
-    max-width: 650px;
-    margin: 60px auto;
+    max-width: 700px;
+    margin: 50px auto;
     padding: 20px;
     text-align: center;
 }
@@ -35,7 +51,7 @@ h1 {
 button {
     display: block;
     width: 100%;
-    padding: 12px;
+    padding: 14px;
     margin: 10px 0;
     border: none;
     border-radius: 5px;
@@ -69,108 +85,120 @@ button:hover {
 
 <div class="container">
 
-<h1>Federal Employee Retirement Quiz</h1>
-<p>Answer 6 quick questions to see if you're truly retirement ready.</p>
+<h1>Federal Employee Retirement Assessment</h1>
+<p>Answer 7 quick questions to evaluate your retirement readiness.</p>
 
 <div class="progress">
     <div class="progress-bar" id="progressBar"></div>
 </div>
 
-<!-- Question 1 -->
-<div class="question active" id="q1">
-<h3>1️⃣ Are you currently a federal employee?</h3>
-<button onclick="next(1)">Yes – FERS</button>
-<button onclick="next(1)">Yes – CSRS</button>
-<button onclick="next(1)">Yes – Military / Federal Hybrid</button>
-<button onclick="disqualify()">No (This offer is for federal employees only)</button>
+<!-- STATE GATE -->
+<div class="question active" id="q0">
+<h3>Are you currently located in one of these licensed states?</h3>
+<button onclick="next()">Missouri (MO)</button>
+<button onclick="next()">Arizona (AZ)</button>
+<button onclick="next()">Utah (UT)</button>
+<button onclick="next()">Mississippi (MS)</button>
+<button onclick="next()">Indiana (IN)</button>
+<button onclick="next()">Washington (WA)</button>
+<button onclick="next()">Texas (TX)</button>
+<button onclick="next()">Maryland (MD)</button>
+<button onclick="disqualify()">Other</button>
 </div>
 
-<!-- Question 2 -->
+<!-- Q1 -->
+<div class="question" id="q1">
+<h3>Are you currently a federal employee?</h3>
+<button onclick="next()">Yes – FERS</button>
+<button onclick="next()">Yes – CSRS</button>
+<button onclick="next()">Yes – Military / Hybrid</button>
+<button onclick="disqualify()">No</button>
+</div>
+
+<!-- Q2 -->
 <div class="question" id="q2">
-<h3>2️⃣ How many years of federal service do you have?</h3>
-<button onclick="next(2)">0–5 years</button>
-<button onclick="next(2)">6–15 years</button>
-<button onclick="next(2)">16–25 years</button>
-<button onclick="next(2)">25+ years</button>
+<h3>How many years of federal service do you have?</h3>
+<button onclick="next()">0–5 years</button>
+<button onclick="next()">6–15 years</button>
+<button onclick="next()">16–25 years</button>
+<button onclick="next()">25+ years</button>
 </div>
 
-<!-- Question 3 -->
+<!-- Q3 -->
 <div class="question" id="q3">
-<h3>3️⃣ When are you planning to retire?</h3>
-<button onclick="next(3)">Within 1–3 years</button>
-<button onclick="next(3)">3–7 years</button>
-<button onclick="next(3)">7+ years</button>
-<button onclick="next(3)">Not sure yet</button>
+<h3>When are you planning to retire?</h3>
+<button onclick="next()">1–3 years</button>
+<button onclick="next()">3–7 years</button>
+<button onclick="next()">7+ years</button>
+<button onclick="next()">Not sure yet</button>
 </div>
 
-<!-- Question 4 -->
+<!-- Q4 -->
 <div class="question" id="q4">
-<h3>4️⃣ Do you feel confident you understand your:</h3>
-<button onclick="next(4)">FERS/CSRS pension</button>
-<button onclick="next(4)">TSP withdrawal strategy</button>
-<button onclick="next(4)">FEGLI options</button>
-<button onclick="next(4)">FEHB in retirement</button>
-<button onclick="next(4)">I’m honestly not sure</button>
+<h3>Do you feel confident you understand your:</h3>
+<button onclick="next()">FERS/CSRS pension</button>
+<button onclick="next()">TSP withdrawal strategy</button>
+<button onclick="next()">FEGLI options</button>
+<button onclick="next()">FEHB in retirement</button>
+<button onclick="next()">I'm honestly not sure</button>
 </div>
 
-<!-- Question 5 -->
+<!-- Q5 -->
 <div class="question" id="q5">
-<h3>5️⃣ Have you had a personalized federal retirement analysis done?</h3>
-<button onclick="next(5)">Yes</button>
-<button onclick="next(5)">No</button>
-<button onclick="next(5)">I’ve only attended a seminar/webinar</button>
+<h3>Have you had a personalized federal retirement analysis done?</h3>
+<button onclick="next()">Yes</button>
+<button onclick="next()">No</button>
+<button onclick="next()">Only seminar/webinar</button>
 </div>
 
-<!-- Question 6 -->
+<!-- Q6 -->
 <div class="question" id="q6">
-<h3>6️⃣ Would you like a complimentary federal retirement review?</h3>
-<button onclick="goToCalendly()">Yes – I want to schedule my review</button>
-<button onclick="next(6)">Maybe – I’d like more information</button>
-<button onclick="endQuiz()">Not right now</button>
+<h3>Would you like a complimentary federal retirement review?</h3>
+<button onclick="goToCalendly()">Yes – Schedule My Review</button>
+<button onclick="next()">Maybe – More Information</button>
+<button onclick="showResult()">Not right now</button>
 </div>
 
-<!-- Result Screen -->
+<!-- RESULT -->
 <div class="question" id="result">
-<h3>You're Closer Than You Think.</h3>
-<p>Many federal employees discover income gaps or missed strategies when reviewing FERS, TSP, and benefit coordination.</p>
-<button onclick="goToCalendly()">Schedule My Federal Review</button>
+<h3>Your Retirement Strategy May Have Gaps</h3>
+<p>Many federal employees miss optimization opportunities in pension coordination, TSP strategy, and benefit timing.</p>
+<button onclick="goToCalendly()">Schedule My Review</button>
 </div>
 
-<!-- Disqualified -->
+<!-- DISQUALIFIED -->
 <div class="question" id="disqualified">
-<h3>This Quiz Is For Federal Employees Only</h3>
-<p>If you're not currently a federal employee, this review isn't applicable.</p>
+<h3>This Assessment Is Limited To Licensed States</h3>
+<p>We currently provide federal retirement reviews only in MO, AZ, UT, MS, IN, WA, TX, and MD.</p>
 </div>
 
 </div>
 
 <script>
-
-let current = 1;
+let current = 0;
+const totalSteps = 7;
 
 function updateProgress() {
-    let percent = (current - 1) / 6 * 100;
+    let percent = (current / totalSteps) * 100;
     document.getElementById("progressBar").style.width = percent + "%";
 }
 
-function next(step) {
+function next() {
     document.getElementById("q" + current).classList.remove("active");
     current++;
     if (current <= 6) {
         document.getElementById("q" + current).classList.add("active");
-    } else {
-        document.getElementById("result").classList.add("active");
     }
     updateProgress();
 }
 
 function disqualify() {
-    document.getElementById("q1").classList.remove("active");
+    document.getElementById("q" + current).classList.remove("active");
     document.getElementById("disqualified").classList.add("active");
 }
 
-function endQuiz() {
-    document.getElementById("q6").classList.remove("active");
+function showResult() {
+    document.getElementById("q" + current).classList.remove("active");
     document.getElementById("result").classList.add("active");
 }
 
@@ -179,7 +207,6 @@ function goToCalendly() {
 }
 
 updateProgress();
-
 </script>
 
 </body>
