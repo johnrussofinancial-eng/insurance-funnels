@@ -5,22 +5,6 @@
 <title>Federal Retirement Readiness Quiz</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<!-- Meta Pixel Placeholder -->
-<!-- Replace YOUR_META_PIXEL_ID -->
-<script>
-/* Meta Pixel Code Goes Here */
-</script>
-
-<!-- Pinterest Tag Placeholder -->
-<script>
-/* Pinterest Tag Code Goes Here */
-</script>
-
-<!-- Google Tag Placeholder -->
-<script>
-/* Google Tag (gtag.js) Goes Here */
-</script>
-
 <style>
 body {
     margin: 0;
@@ -94,68 +78,68 @@ button:hover {
 
 <!-- STATE GATE -->
 <div class="question active" id="q0">
-<h3>Are you currently located in one of these licensed states?</h3>
-<button onclick="next()">Missouri (MO)</button>
-<button onclick="next()">Arizona (AZ)</button>
-<button onclick="next()">Utah (UT)</button>
-<button onclick="next()">Mississippi (MS)</button>
-<button onclick="next()">Indiana (IN)</button>
-<button onclick="next()">Washington (WA)</button>
-<button onclick="next()">Texas (TX)</button>
-<button onclick="next()">Maryland (MD)</button>
+<h3>Are you located in one of our licensed states?</h3>
+<button onclick="next('MO')">Missouri (MO)</button>
+<button onclick="next('AZ')">Arizona (AZ)</button>
+<button onclick="next('UT')">Utah (UT)</button>
+<button onclick="next('MS')">Mississippi (MS)</button>
+<button onclick="next('IN')">Indiana (IN)</button>
+<button onclick="next('WA')">Washington (WA)</button>
+<button onclick="next('TX')">Texas (TX)</button>
+<button onclick="next('MD')">Maryland (MD)</button>
 <button onclick="disqualify()">Other</button>
 </div>
 
 <!-- Q1 -->
 <div class="question" id="q1">
 <h3>Are you currently a federal employee?</h3>
-<button onclick="next()">Yes – FERS</button>
-<button onclick="next()">Yes – CSRS</button>
-<button onclick="next()">Yes – Military / Hybrid</button>
+<button onclick="next('FERS')">Yes – FERS</button>
+<button onclick="next('CSRS')">Yes – CSRS</button>
+<button onclick="next('Hybrid')">Yes – Military / Hybrid</button>
 <button onclick="disqualify()">No</button>
 </div>
 
 <!-- Q2 -->
 <div class="question" id="q2">
 <h3>How many years of federal service do you have?</h3>
-<button onclick="next()">0–5 years</button>
-<button onclick="next()">6–15 years</button>
-<button onclick="next()">16–25 years</button>
-<button onclick="next()">25+ years</button>
+<button onclick="next('0-5')">0–5 years</button>
+<button onclick="next('6-15')">6–15 years</button>
+<button onclick="next('16-25')">16–25 years</button>
+<button onclick="next('25+')">25+ years</button>
 </div>
 
 <!-- Q3 -->
 <div class="question" id="q3">
 <h3>When are you planning to retire?</h3>
-<button onclick="next()">1–3 years</button>
-<button onclick="next()">3–7 years</button>
-<button onclick="next()">7+ years</button>
-<button onclick="next()">Not sure yet</button>
+<button onclick="next('1-3 years')">1–3 years</button>
+<button onclick="next('3-7 years')">3–7 years</button>
+<button onclick="next('7+ years')">7+ years</button>
+<button onclick="next('Not sure')">Not sure yet</button>
 </div>
 
 <!-- Q4 -->
 <div class="question" id="q4">
 <h3>Do you feel confident you understand your:</h3>
-<button onclick="next()">FERS/CSRS pension</button>
-<button onclick="next()">TSP withdrawal strategy</button>
-<button onclick="next()">FEGLI options</button>
-<button onclick="next()">FEHB in retirement</button>
-<button onclick="next()">I'm honestly not sure</button>
+<button onclick="next('Pension')">FERS/CSRS pension</button>
+<button onclick="next('TSP')">TSP withdrawal strategy</button>
+<button onclick="next('FEGLI')">FEGLI options</button>
+<button onclick="next('FEHB')">FEHB in retirement</button>
+<button onclick="next('Not sure')">I'm honestly not sure</button>
 </div>
 
 <!-- Q5 -->
 <div class="question" id="q5">
 <h3>Have you had a personalized federal retirement analysis done?</h3>
-<button onclick="next()">Yes</button>
-<button onclick="next()">No</button>
-<button onclick="next()">Only seminar/webinar</button>
+<button onclick="next('Yes')">Yes</button>
+<button onclick="next('No')">No</button>
+<button onclick="next('Seminar only')">Only seminar/webinar</button>
 </div>
 
 <!-- Q6 -->
 <div class="question" id="q6">
 <h3>Would you like a complimentary federal retirement review?</h3>
 <button onclick="goToCalendly()">Yes – Schedule My Review</button>
-<button onclick="next()">Maybe – More Information</button>
+<button onclick="showResult()">Maybe – More Information</button>
 <button onclick="showResult()">Not right now</button>
 </div>
 
@@ -175,20 +159,40 @@ button:hover {
 </div>
 
 <script>
+
 let current = 0;
 const totalSteps = 7;
+
+let answers = {
+    state: "",
+    employeeType: "",
+    yearsService: "",
+    retirementTimeline: "",
+    confidenceArea: "",
+    priorAnalysis: ""
+};
 
 function updateProgress() {
     let percent = (current / totalSteps) * 100;
     document.getElementById("progressBar").style.width = percent + "%";
 }
 
-function next() {
+function next(answer) {
+
+    if (current === 0) answers.state = answer;
+    if (current === 1) answers.employeeType = answer;
+    if (current === 2) answers.yearsService = answer;
+    if (current === 3) answers.retirementTimeline = answer;
+    if (current === 4) answers.confidenceArea = answer;
+    if (current === 5) answers.priorAnalysis = answer;
+
     document.getElementById("q" + current).classList.remove("active");
     current++;
+
     if (current <= 6) {
         document.getElementById("q" + current).classList.add("active");
     }
+
     updateProgress();
 }
 
@@ -203,10 +207,20 @@ function showResult() {
 }
 
 function goToCalendly() {
-    window.location.href = "https://calendly.com/YOUR-LINK-HERE";
+
+    let calendlyURL = "https://calendly.com/YOUR-LINK-HERE?" +
+        "state=" + encodeURIComponent(answers.state) +
+        "&employeeType=" + encodeURIComponent(answers.employeeType) +
+        "&yearsService=" + encodeURIComponent(answers.yearsService) +
+        "&retirementTimeline=" + encodeURIComponent(answers.retirementTimeline) +
+        "&confidenceArea=" + encodeURIComponent(answers.confidenceArea) +
+        "&priorAnalysis=" + encodeURIComponent(answers.priorAnalysis);
+
+    window.location.href = calendlyURL;
 }
 
 updateProgress();
+
 </script>
 
 </body>
