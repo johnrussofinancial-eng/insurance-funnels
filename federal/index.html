@@ -49,12 +49,14 @@ button:hover {
     opacity: 0.9;
 }
 
-select {
+select, input[type="text"], input[type="email"], input[type="tel"] {
     width: 100%;
     padding: 12px;
-    margin: 15px 0;
+    margin: 10px 0;
     border-radius: 5px;
     font-size: 16px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
 }
 
 .progress {
@@ -69,12 +71,27 @@ select {
     width: 0%;
     background: #0A1F44;
     border-radius: 4px;
+    transition: width 0.3s ease;
 }
 
 .footer {
     margin-top: 40px;
     font-size: 12px;
     color: #555;
+}
+
+.contact-label {
+    text-align: left;
+    font-size: 14px;
+    font-weight: bold;
+    color: #0A1F44;
+    margin-top: 10px;
+}
+
+.sending-msg {
+    font-size: 16px;
+    color: #0A1F44;
+    margin-top: 20px;
 }
 </style>
 </head>
@@ -93,61 +110,26 @@ select {
 <!-- STATE DROPDOWN -->
 <div class="question active" id="q0">
 <h3>What state are you currently located in?</h3>
-
 <select id="stateSelect">
 <option value="">Select Your State</option>
-<option>Alabama</option>
-<option>Alaska</option>
-<option>Arizona</option>
-<option>Arkansas</option>
-<option>California</option>
-<option>Colorado</option>
-<option>Connecticut</option>
-<option>Delaware</option>
-<option>Florida</option>
-<option>Georgia</option>
-<option>Hawaii</option>
-<option>Idaho</option>
-<option>Illinois</option>
-<option>Indiana</option>
-<option>Iowa</option>
-<option>Kansas</option>
-<option>Kentucky</option>
-<option>Louisiana</option>
-<option>Maine</option>
-<option>Maryland</option>
-<option>Massachusetts</option>
-<option>Michigan</option>
-<option>Minnesota</option>
-<option>Mississippi</option>
-<option>Missouri</option>
-<option>Montana</option>
-<option>Nebraska</option>
-<option>Nevada</option>
-<option>New Hampshire</option>
-<option>New Jersey</option>
-<option>New Mexico</option>
-<option>New York</option>
-<option>North Carolina</option>
-<option>North Dakota</option>
-<option>Ohio</option>
-<option>Oklahoma</option>
-<option>Oregon</option>
-<option>Pennsylvania</option>
-<option>Rhode Island</option>
-<option>South Carolina</option>
-<option>South Dakota</option>
-<option>Tennessee</option>
-<option>Texas</option>
-<option>Utah</option>
-<option>Vermont</option>
-<option>Virginia</option>
-<option>Washington</option>
-<option>West Virginia</option>
-<option>Wisconsin</option>
-<option>Wyoming</option>
+<option>Alabama</option><option>Alaska</option><option>Arizona</option>
+<option>Arkansas</option><option>California</option><option>Colorado</option>
+<option>Connecticut</option><option>Delaware</option><option>Florida</option>
+<option>Georgia</option><option>Hawaii</option><option>Idaho</option>
+<option>Illinois</option><option>Indiana</option><option>Iowa</option>
+<option>Kansas</option><option>Kentucky</option><option>Louisiana</option>
+<option>Maine</option><option>Maryland</option><option>Massachusetts</option>
+<option>Michigan</option><option>Minnesota</option><option>Mississippi</option>
+<option>Missouri</option><option>Montana</option><option>Nebraska</option>
+<option>Nevada</option><option>New Hampshire</option><option>New Jersey</option>
+<option>New Mexico</option><option>New York</option><option>North Carolina</option>
+<option>North Dakota</option><option>Ohio</option><option>Oklahoma</option>
+<option>Oregon</option><option>Pennsylvania</option><option>Rhode Island</option>
+<option>South Carolina</option><option>South Dakota</option><option>Tennessee</option>
+<option>Texas</option><option>Utah</option><option>Vermont</option>
+<option>Virginia</option><option>Washington</option><option>West Virginia</option>
+<option>Wisconsin</option><option>Wyoming</option>
 </select>
-
 <button onclick="submitState()">Continue</button>
 </div>
 
@@ -199,15 +181,38 @@ select {
 <!-- Q6 -->
 <div class="question" id="q6">
 <h3>Would you like a complimentary federal retirement review?</h3>
-<button onclick="goToCalendly()">Yes – Schedule My Review</button>
+<button onclick="showContactForm()">Yes – Schedule My Review</button>
 <button onclick="showResult()">Maybe – More Information</button>
 <button onclick="showResult()">Not right now</button>
 </div>
 
+<!-- CONTACT FORM (new step) -->
+<div class="question" id="qContact">
+<h3>Where should we send your retirement review details?</h3>
+<p style="color:#555; font-size:14px;">We'll use this to confirm your appointment and send preparation materials.</p>
+
+<div class="contact-label">Full Name *</div>
+<input type="text" id="contactName" placeholder="Your full name" />
+
+<div class="contact-label">Email Address *</div>
+<input type="email" id="contactEmail" placeholder="your@email.com" />
+
+<div class="contact-label">Phone Number *</div>
+<input type="tel" id="contactPhone" placeholder="(555) 555-5555" />
+
+<button onclick="submitContact()" style="margin-top:20px;">Schedule My Review →</button>
+</div>
+
+<!-- RESULT -->
 <div class="question" id="result">
 <h3>Your Retirement Strategy May Have Gaps</h3>
 <p>Many federal employees miss optimization opportunities in pension coordination, TSP strategy, and benefit timing.</p>
-<button onclick="goToCalendly()">Schedule My Review</button>
+<button onclick="showContactForm()">Schedule My Review</button>
+</div>
+
+<!-- SENDING -->
+<div class="question" id="sending">
+<p class="sending-msg">⏳ Saving your information and redirecting to scheduling...</p>
 </div>
 
 <div class="footer">
@@ -220,7 +225,7 @@ Product recommendations are subject to state licensing and suitability requireme
 <script>
 
 let current = 0;
-const totalSteps = 7;
+const totalSteps = 8; // now 8 steps including contact
 
 let answers = {
     state: "",
@@ -228,7 +233,10 @@ let answers = {
     yearsService: "",
     retirementTimeline: "",
     confidenceArea: "",
-    priorAnalysis: ""
+    priorAnalysis: "",
+    name: "",
+    email: "",
+    phone: ""
 };
 
 function updateProgress() {
@@ -244,7 +252,6 @@ function submitState() {
 }
 
 function next(answer) {
-
     if (current === 1) answers.employeeType = answer;
     if (current === 2) answers.yearsService = answer;
     if (current === 3) answers.retirementTimeline = answer;
@@ -266,12 +273,45 @@ function showResult() {
     document.getElementById("result").classList.add("active");
 }
 
-function goToCalendly() {
+function showContactForm() {
+    // Hide whatever is currently showing
+    const activeEls = document.querySelectorAll(".active");
+    activeEls.forEach(el => el.classList.remove("active"));
+    document.getElementById("qContact").classList.add("active");
+    current = 7;
+    updateProgress();
+}
 
+function submitContact() {
+    const name = document.getElementById("contactName").value.trim();
+    const email = document.getElementById("contactEmail").value.trim();
+    const phone = document.getElementById("contactPhone").value.trim();
+
+    if (!name) return alert("Please enter your name.");
+    if (!email || !email.includes("@")) return alert("Please enter a valid email address.");
+    if (!phone) return alert("Please enter your phone number.");
+
+    answers.name = name;
+    answers.email = email;
+    answers.phone = phone;
+
+    // Show sending screen
+    document.getElementById("qContact").classList.remove("active");
+    document.getElementById("sending").classList.add("active");
+    current = 8;
+    updateProgress();
+
+    goToCalendly();
+}
+
+function goToCalendly() {
     const webhookURL = "https://hook.us2.make.com/ajxm62qqkaesi1oyglotr4cic8mu5mrv";
 
     const payload = {
         timestamp: new Date().toISOString(),
+        name: answers.name,
+        email: answers.email,
+        phone: answers.phone,
         state: answers.state,
         employeeType: answers.employeeType,
         yearsService: answers.yearsService,
@@ -289,10 +329,22 @@ function goToCalendly() {
         body: JSON.stringify(payload)
     })
     .then(() => {
-        window.location.href = "https://calendly.com/johnrussofinancial/30min";
+        // Prefill Calendly with name, email, phone
+        const params = new URLSearchParams({
+            name: answers.name,
+            email: answers.email,
+            a1: answers.phone
+        });
+        window.location.href = "https://calendly.com/johnrussofinancial/30min?" + params.toString();
     })
     .catch(() => {
-        window.location.href = "https://calendly.com/johnrussofinancial/30min";
+        // Even if webhook fails, still redirect
+        const params = new URLSearchParams({
+            name: answers.name,
+            email: answers.email,
+            a1: answers.phone
+        });
+        window.location.href = "https://calendly.com/johnrussofinancial/30min?" + params.toString();
     });
 }
 
