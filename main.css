@@ -1,0 +1,291 @@
+/* ============================================================
+   MAIN.CSS — Insurance Multi-Vertical Design System
+   Aesthetic: Authoritative, trust-forward, clean editorial
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500;600&display=swap');
+
+:root {
+  /* Core Palette */
+  --navy:       #0B1F3A;
+  --navy-mid:   #12305C;
+  --gold:       #C9952A;
+  --gold-light: #E8B84B;
+  --cream:      #F7F4EE;
+  --white:      #FFFFFF;
+  --slate:      #6B7A8F;
+  --slate-light:#E8EDF4;
+
+  /* Vertical Accent Colors */
+  --v-federal:  #1A4A8A;
+  --v-iul:      #1A5C3A;
+  --v-annuities:#6B2D8A;
+  --v-life:     #8A1A2A;
+  --v-teachers: #C96B1A;
+  --v-truckers: #2A5C7A;
+
+  /* Typography */
+  --font-display: 'Playfair Display', Georgia, serif;
+  --font-body:    'DM Sans', system-ui, sans-serif;
+
+  /* Spacing */
+  --max-width: 1200px;
+  --section-pad: 5rem 2rem;
+}
+
+/* ---- Reset ---- */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: var(--font-body);
+  background: var(--white);
+  color: var(--navy);
+  line-height: 1.6;
+}
+
+/* ---- Typography ---- */
+h1, h2, h3 { font-family: var(--font-display); line-height: 1.2; }
+h1 { font-size: clamp(2.2rem, 5vw, 3.8rem); font-weight: 900; }
+h2 { font-size: clamp(1.7rem, 3vw, 2.6rem); font-weight: 700; }
+h3 { font-size: 1.3rem; font-weight: 700; }
+p  { font-size: 1.05rem; color: var(--slate); max-width: 65ch; }
+
+/* ---- Layout Utilities ---- */
+.container { max-width: var(--max-width); margin: 0 auto; padding: 0 2rem; }
+.section   { padding: var(--section-pad); }
+.grid-2    { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center; }
+.grid-3    { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; }
+@media (max-width: 768px) {
+  .grid-2, .grid-3 { grid-template-columns: 1fr; }
+}
+
+/* ---- NAV ---- */
+.site-nav {
+  position: sticky; top: 0; z-index: 100;
+  background: var(--navy);
+  padding: 1rem 2rem;
+  display: flex; justify-content: space-between; align-items: center;
+  box-shadow: 0 2px 20px rgba(0,0,0,.3);
+}
+.nav-logo {
+  font-family: var(--font-display);
+  color: var(--gold);
+  font-size: 1.3rem;
+  font-weight: 700;
+  text-decoration: none;
+  letter-spacing: 0.02em;
+}
+.nav-links { display: flex; gap: 2rem; list-style: none; }
+.nav-links a {
+  color: rgba(255,255,255,.8);
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  transition: color 0.2s;
+}
+.nav-links a:hover { color: var(--gold); }
+.nav-cta {
+  background: var(--gold);
+  color: var(--navy) !important;
+  padding: 0.5rem 1.3rem;
+  border-radius: 4px;
+  font-weight: 600 !important;
+}
+.nav-cta:hover { background: var(--gold-light) !important; color: var(--navy) !important; }
+
+/* ---- HERO ---- */
+.hero {
+  background: linear-gradient(135deg, var(--navy) 0%, var(--navy-mid) 60%, #1A3A6A 100%);
+  color: var(--white);
+  padding: 6rem 2rem;
+  position: relative;
+  overflow: hidden;
+}
+.hero::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: radial-gradient(ellipse at 70% 50%, rgba(201,149,42,.12) 0%, transparent 60%);
+  pointer-events: none;
+}
+.hero-eyebrow {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 1rem;
+  border-left: 3px solid var(--gold);
+  padding-left: 0.75rem;
+}
+.hero h1 { color: var(--white); margin-bottom: 1.5rem; }
+.hero h1 em { font-style: normal; color: var(--gold); }
+.hero p { color: rgba(255,255,255,.75); font-size: 1.15rem; margin-bottom: 2.5rem; max-width: 55ch; }
+.hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; }
+
+/* ---- BUTTONS ---- */
+.btn {
+  display: inline-flex; align-items: center; gap: 0.5rem;
+  padding: 0.85rem 2rem;
+  border-radius: 5px;
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 0.95rem;
+  text-decoration: none;
+  cursor: pointer;
+  border: none;
+  transition: all 0.2s;
+  letter-spacing: 0.02em;
+}
+.btn-primary {
+  background: var(--gold);
+  color: var(--navy);
+}
+.btn-primary:hover { background: var(--gold-light); transform: translateY(-1px); box-shadow: 0 6px 20px rgba(201,149,42,.4); }
+.btn-outline {
+  background: transparent;
+  color: var(--white);
+  border: 2px solid rgba(255,255,255,.5);
+}
+.btn-outline:hover { border-color: var(--white); background: rgba(255,255,255,.1); }
+
+/* ---- TRUST BAR ---- */
+.trust-bar {
+  background: var(--cream);
+  border-bottom: 1px solid var(--slate-light);
+  padding: 1.25rem 2rem;
+}
+.trust-items {
+  display: flex; justify-content: center;
+  gap: 3rem; flex-wrap: wrap;
+  list-style: none;
+}
+.trust-items li {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--navy);
+  letter-spacing: 0.03em;
+  display: flex; align-items: center; gap: 0.4rem;
+}
+.trust-items li::before { content: '✓'; color: var(--gold); font-weight: 900; }
+
+/* ---- CARDS ---- */
+.card {
+  background: var(--white);
+  border: 1px solid var(--slate-light);
+  border-radius: 8px;
+  padding: 2rem;
+  transition: box-shadow 0.2s, transform 0.2s;
+}
+.card:hover {
+  box-shadow: 0 12px 40px rgba(11,31,58,.1);
+  transform: translateY(-3px);
+}
+.card-icon {
+  width: 48px; height: 48px;
+  background: var(--cream);
+  border-radius: 8px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.4rem;
+  margin-bottom: 1.25rem;
+}
+.card h3 { margin-bottom: 0.75rem; }
+.card p  { font-size: 0.95rem; }
+
+/* ---- SECTION THEMES ---- */
+.section-dark {
+  background: var(--navy);
+  color: var(--white);
+}
+.section-dark h2 { color: var(--white); }
+.section-dark p  { color: rgba(255,255,255,.7); }
+.section-cream { background: var(--cream); }
+
+/* ---- QUIZ WIDGET ---- */
+.quiz-embed {
+  background: var(--navy);
+  border-radius: 12px;
+  padding: 2.5rem;
+  color: var(--white);
+  max-width: 640px;
+}
+.quiz-step { display: none; }
+.quiz-step.active { display: block; }
+.quiz-question { font-family: var(--font-display); font-size: 1.4rem; margin-bottom: 1.5rem; }
+.quiz-options { display: grid; gap: 0.75rem; }
+.quiz-option {
+  background: rgba(255,255,255,.07);
+  border: 2px solid rgba(255,255,255,.15);
+  border-radius: 6px;
+  padding: 1rem 1.25rem;
+  cursor: pointer;
+  color: var(--white);
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  text-align: left;
+  transition: all 0.15s;
+}
+.quiz-option:hover {
+  background: rgba(201,149,42,.2);
+  border-color: var(--gold);
+}
+.quiz-progress {
+  height: 3px;
+  background: rgba(255,255,255,.15);
+  border-radius: 2px;
+  margin-bottom: 2rem;
+}
+.quiz-progress-fill {
+  height: 100%;
+  background: var(--gold);
+  border-radius: 2px;
+  transition: width 0.3s;
+}
+
+/* ---- BOOKING SECTION ---- */
+.booking-section { background: var(--cream); }
+.calendly-wrapper {
+  background: var(--white);
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 30px rgba(11,31,58,.08);
+  min-height: 600px;
+}
+
+/* ---- FOOTER ---- */
+.site-footer {
+  background: var(--navy);
+  color: rgba(255,255,255,.6);
+  padding: 3rem 2rem;
+  text-align: center;
+  font-size: 0.85rem;
+}
+.site-footer a { color: var(--gold); text-decoration: none; }
+
+/* ---- VERTICAL-SPECIFIC ACCENTS ---- */
+body[data-active-vertical="teachers"]          .vertical-accent { color: var(--v-teachers); }
+body[data-active-vertical="federal-retirement"] .vertical-accent { color: var(--v-federal); }
+body[data-active-vertical="iul"]               .vertical-accent { color: var(--v-iul); }
+body[data-active-vertical="annuities"]         .vertical-accent { color: var(--v-annuities); }
+body[data-active-vertical="life-insurance"]    .vertical-accent { color: var(--v-life); }
+body[data-active-vertical="truckers"]          .vertical-accent { color: var(--v-truckers); }
+
+/* ---- ANIMATIONS ---- */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.fade-up { animation: fadeUp 0.6s ease both; }
+.fade-up-delay-1 { animation-delay: 0.1s; }
+.fade-up-delay-2 { animation-delay: 0.2s; }
+.fade-up-delay-3 { animation-delay: 0.3s; }
+
+/* ---- RESPONSIVE ---- */
+@media (max-width: 768px) {
+  .site-nav { flex-direction: column; gap: 1rem; }
+  .nav-links { gap: 1rem; }
+  .hero { padding: 4rem 1.5rem; }
+  .trust-items { gap: 1.5rem; }
+}
