@@ -1,0 +1,1241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pay and Play Checks | Find the Right Coverage for Your Life</title>
+  <meta name="description" content="Insurance and retirement income specialists for federal employees, teachers, and truckers. Free 30-minute review. No obligation.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --black:        #0A0A0A;
+      --dark:         #111318;
+      --dark-mid:     #1A1E26;
+      --white:        #FFFFFF;
+      --off-white:    #F7F6F2;
+      --gold:         #C9952A;
+      --gold-light:   #E8AF45;
+      --gold-pale:    #FFF8EC;
+      --muted:        #7A8494;
+      --border:       #E8E6E0;
+
+      /* Vertical accent colors */
+      --federal:      #1A4A8A;
+      --federal-light:#2A6EC9;
+      --teachers:     #D4820A;
+      --teachers-light:#F0A030;
+      --truckers:     #E85D04;
+      --truckers-light:#FF7324;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Manrope', sans-serif;
+      background: var(--white);
+      color: var(--dark);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    h1, h2, h3 { font-family: 'Playfair Display', Georgia, serif; line-height: 1.2; }
+    h1 { font-size: clamp(2.6rem, 5vw, 4.2rem); font-weight: 900; }
+    h2 { font-size: clamp(1.9rem, 3.5vw, 3rem); font-weight: 700; }
+    h3 { font-size: 1.2rem; font-weight: 700; }
+    p  { font-size: 1.05rem; color: var(--muted); line-height: 1.8; }
+
+    .container { max-width: 1160px; margin: 0 auto; padding: 0 2rem; }
+
+    /* ── NAV ── */
+    .nav {
+      background: var(--dark);
+      padding: 0 2rem;
+      display: flex; justify-content: space-between; align-items: center;
+      min-height: 70px;
+      position: sticky; top: 0; z-index: 100;
+      border-bottom: 1px solid rgba(255,255,255,.06);
+    }
+    .nav-brand {
+      display: flex; align-items: center; gap: 0.85rem;
+      text-decoration: none;
+    }
+    .nav-logo {
+      width: 38px; height: 38px;
+      background: var(--gold);
+      border-radius: 8px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.1rem;
+      flex-shrink: 0;
+    }
+    .nav-name {
+      font-family: 'Playfair Display', serif;
+      color: var(--white);
+      font-size: 1.05rem;
+      font-weight: 700;
+      line-height: 1.1;
+    }
+    .nav-tagline {
+      font-size: 0.65rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--gold);
+      display: block;
+    }
+    .nav-links {
+      display: flex; align-items: center; gap: 2rem;
+      list-style: none;
+    }
+    .nav-links a {
+      color: rgba(255,255,255,.6);
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--gold); }
+    .nav-cta {
+      background: var(--gold) !important;
+      color: var(--dark) !important;
+      padding: 0.55rem 1.4rem;
+      border-radius: 6px;
+      font-weight: 700 !important;
+      transition: background 0.2s !important;
+    }
+    .nav-cta:hover { background: var(--gold-light) !important; }
+
+    /* ── HERO ── */
+    .hero {
+      background: var(--dark);
+      padding: 8rem 2rem 6rem;
+      position: relative;
+      overflow: hidden;
+      text-align: center;
+    }
+    .hero::before {
+      content: '';
+      position: absolute; inset: 0;
+      background:
+        radial-gradient(ellipse at 30% 0%, rgba(201,149,42,.12), transparent 50%),
+        radial-gradient(ellipse at 70% 100%, rgba(201,149,42,.08), transparent 50%);
+      pointer-events: none;
+    }
+    /* Grid texture */
+    .hero::after {
+      content: '';
+      position: absolute; inset: 0;
+      background-image:
+        linear-gradient(rgba(255,255,255,.025) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,.025) 1px, transparent 1px);
+      background-size: 60px 60px;
+      pointer-events: none;
+    }
+    .hero-inner { position: relative; z-index: 1; max-width: 860px; margin: 0 auto; }
+    .hero-eyebrow {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      background: rgba(201,149,42,.15);
+      border: 1px solid rgba(201,149,42,.3);
+      border-radius: 100px;
+      padding: 0.4rem 1.25rem;
+      margin-bottom: 2rem;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--gold-light);
+    }
+    .hero h1 {
+      color: var(--white);
+      margin-bottom: 1.5rem;
+    }
+    .hero h1 em {
+      font-style: italic;
+      color: var(--gold);
+    }
+    .hero-sub {
+      color: rgba(255,255,255,.6) !important;
+      font-size: 1.2rem !important;
+      max-width: 58ch;
+      margin: 0 auto 3rem;
+    }
+
+    /* ── VERTICAL CARDS (main CTA) ── */
+    .vertical-cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      max-width: 1000px;
+      margin: 0 auto;
+      position: relative; z-index: 1;
+    }
+    .vcard {
+      border-radius: 12px;
+      padding: 2.5rem 2rem;
+      text-align: left;
+      text-decoration: none;
+      transition: transform 0.25s, box-shadow 0.25s;
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
+      border: 1px solid transparent;
+    }
+    .vcard:hover { transform: translateY(-6px); }
+    .vcard::before {
+      content: '';
+      position: absolute; inset: 0;
+      opacity: 0;
+      transition: opacity 0.25s;
+      border-radius: 12px;
+    }
+    .vcard:hover::before { opacity: 1; }
+
+    /* Federal card */
+    .vcard-federal {
+      background: linear-gradient(145deg, #0E2A52, #1A3F7A);
+      box-shadow: 0 8px 32px rgba(26,74,138,.4);
+    }
+    .vcard-federal:hover { box-shadow: 0 20px 50px rgba(26,74,138,.5); border-color: rgba(42,110,201,.4); }
+
+    /* Teachers card */
+    .vcard-teachers {
+      background: linear-gradient(145deg, #7A4200, #C96B00);
+      box-shadow: 0 8px 32px rgba(212,130,10,.3);
+    }
+    .vcard-teachers:hover { box-shadow: 0 20px 50px rgba(212,130,10,.5); border-color: rgba(240,160,48,.4); }
+
+    /* Truckers card */
+    .vcard-truckers {
+      background: linear-gradient(145deg, #8A2A00, #D44A00);
+      box-shadow: 0 8px 32px rgba(232,93,4,.3);
+    }
+    .vcard-truckers:hover { box-shadow: 0 20px 50px rgba(232,93,4,.5); border-color: rgba(255,115,36,.4); }
+
+    .vcard-emoji {
+      font-size: 2.5rem;
+      margin-bottom: 1.25rem;
+      display: block;
+    }
+    .vcard-label {
+      font-size: 0.68rem;
+      font-weight: 800;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,.5);
+      margin-bottom: 0.5rem;
+      display: block;
+    }
+    .vcard h3 {
+      font-family: 'Playfair Display', serif;
+      color: var(--white);
+      font-size: 1.3rem;
+      margin-bottom: 0.75rem;
+    }
+    .vcard p {
+      color: rgba(255,255,255,.65) !important;
+      font-size: 0.88rem !important;
+      margin-bottom: 1.5rem;
+      line-height: 1.65 !important;
+    }
+    .vcard-arrow {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      font-size: 0.82rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,.9);
+      transition: gap 0.2s;
+    }
+    .vcard:hover .vcard-arrow { gap: 0.85rem; }
+
+    .hero-or {
+      color: rgba(255,255,255,.3);
+      font-size: 0.85rem;
+      font-weight: 500;
+      margin-top: 2rem;
+      position: relative; z-index: 1;
+    }
+    .hero-or a {
+      color: var(--gold);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
+    /* ── TRUST STRIP ── */
+    .trust-strip {
+      background: var(--off-white);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      padding: 1.5rem 2rem;
+    }
+    .trust-items {
+      max-width: 1160px; margin: 0 auto;
+      display: flex; justify-content: center;
+      gap: 3rem; flex-wrap: wrap;
+      list-style: none;
+    }
+    .trust-items li {
+      display: flex; align-items: center; gap: 0.5rem;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--dark);
+    }
+    .trust-items li span:first-child { font-size: 1rem; }
+
+    /* ── HOW IT WORKS ── */
+    .how-section { background: var(--white); padding: 7rem 2rem; }
+    .how-inner { max-width: 1160px; margin: 0 auto; }
+    .section-eyebrow {
+      font-size: 0.72rem;
+      font-weight: 800;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gold);
+      display: block;
+      margin-bottom: 0.75rem;
+    }
+    .how-grid {
+      display: grid; grid-template-columns: repeat(4, 1fr);
+      gap: 2.5rem;
+      margin-top: 4rem;
+      position: relative;
+    }
+    .how-grid::before {
+      content: '';
+      position: absolute;
+      top: 28px; left: 8%; right: 8%;
+      height: 1px;
+      background: linear-gradient(90deg, var(--gold), var(--gold-light), var(--gold));
+      opacity: 0.3;
+    }
+    .how-step { text-align: center; position: relative; z-index: 1; }
+    .how-num {
+      width: 56px; height: 56px;
+      background: var(--dark);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 1.5rem;
+      font-family: 'Playfair Display', serif;
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--gold);
+      border: 2px solid var(--gold);
+    }
+    .how-step h3 { font-size: 1rem; margin-bottom: 0.5rem; color: var(--dark); }
+    .how-step p { font-size: 0.9rem !important; }
+
+    /* ── QUIZ SECTION ── */
+    .quiz-section {
+      background: var(--dark-mid);
+      padding: 7rem 2rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .quiz-section::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: radial-gradient(ellipse at 50% 0%, rgba(201,149,42,.1), transparent 60%);
+      pointer-events: none;
+    }
+    .quiz-inner {
+      max-width: 680px; margin: 0 auto;
+      position: relative; z-index: 1;
+      text-align: center;
+    }
+    .quiz-inner h2 { color: var(--white); margin-bottom: 1rem; }
+    .quiz-inner > p {
+      color: rgba(255,255,255,.55) !important;
+      margin-bottom: 3rem;
+    }
+
+    /* Quiz widget */
+    .quiz-widget {
+      background: rgba(255,255,255,.04);
+      border: 1px solid rgba(255,255,255,.1);
+      border-radius: 16px;
+      padding: 2.5rem;
+      text-align: left;
+    }
+    .quiz-progress-wrap {
+      margin-bottom: 2rem;
+      display: flex; align-items: center; gap: 1rem;
+    }
+    .quiz-progress-bar {
+      flex: 1;
+      height: 4px;
+      background: rgba(255,255,255,.1);
+      border-radius: 2px;
+      overflow: hidden;
+    }
+    .quiz-progress-fill {
+      height: 100%;
+      background: var(--gold);
+      border-radius: 2px;
+      transition: width 0.4s ease;
+      width: 25%;
+    }
+    .quiz-progress-label {
+      font-size: 0.75rem;
+      color: rgba(255,255,255,.35);
+      font-weight: 600;
+      white-space: nowrap;
+    }
+
+    .quiz-step { display: none; }
+    .quiz-step.active { display: block; }
+
+    .quiz-q {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.35rem;
+      color: var(--white);
+      margin-bottom: 1.5rem;
+      line-height: 1.4;
+    }
+    .quiz-options { display: flex; flex-direction: column; gap: 0.75rem; }
+    .quiz-option {
+      background: rgba(255,255,255,.05);
+      border: 1px solid rgba(255,255,255,.12);
+      border-radius: 8px;
+      padding: 1rem 1.25rem;
+      cursor: pointer;
+      color: rgba(255,255,255,.8);
+      font-family: 'Manrope', sans-serif;
+      font-size: 0.95rem;
+      font-weight: 500;
+      text-align: left;
+      transition: all 0.15s;
+      display: flex; align-items: center; gap: 0.75rem;
+      width: 100%;
+    }
+    .quiz-option:hover {
+      background: rgba(201,149,42,.15);
+      border-color: rgba(201,149,42,.5);
+      color: var(--white);
+      transform: translateX(4px);
+    }
+    .quiz-option-icon { font-size: 1.2rem; flex-shrink: 0; }
+
+    /* Contact step */
+    .quiz-contact { display: flex; flex-direction: column; gap: 0.85rem; }
+    .quiz-contact input,
+    .quiz-contact select {
+      width: 100%;
+      padding: 0.9rem 1.1rem;
+      background: rgba(255,255,255,.06);
+      border: 1px solid rgba(255,255,255,.15);
+      border-radius: 8px;
+      color: var(--white);
+      font-family: 'Manrope', sans-serif;
+      font-size: 0.95rem;
+      transition: border-color 0.2s;
+    }
+    .quiz-contact input::placeholder { color: rgba(255,255,255,.3); }
+    .quiz-contact input:focus,
+    .quiz-contact select:focus {
+      outline: none;
+      border-color: var(--gold);
+    }
+    .quiz-contact select { cursor: pointer; }
+    .quiz-contact select option { background: var(--dark-mid); color: var(--white); }
+
+    .btn-submit {
+      width: 100%;
+      padding: 1rem;
+      background: var(--gold);
+      color: var(--dark);
+      border: none;
+      border-radius: 8px;
+      font-family: 'Manrope', sans-serif;
+      font-size: 1rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.2s;
+      margin-top: 0.5rem;
+    }
+    .btn-submit:hover { background: var(--gold-light); transform: translateY(-1px); }
+    .quiz-note {
+      text-align: center;
+      font-size: 0.78rem;
+      color: rgba(255,255,255,.25);
+      margin-top: 0.75rem;
+    }
+
+    /* Sending state */
+    .quiz-sending {
+      text-align: center;
+      padding: 2rem 0;
+    }
+    .quiz-sending-icon { font-size: 3rem; margin-bottom: 1rem; display: block; }
+    .quiz-sending h3 { color: var(--white); font-size: 1.2rem; margin-bottom: 0.5rem; }
+    .quiz-sending p { color: rgba(255,255,255,.5) !important; font-size: 0.9rem !important; }
+
+    /* ── WHY US ── */
+    .why-section { background: var(--off-white); padding: 7rem 2rem; }
+    .why-inner { max-width: 1160px; margin: 0 auto; }
+    .why-header { max-width: 580px; margin-bottom: 4rem; }
+    .why-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+    }
+    .why-card {
+      background: var(--white);
+      border-radius: 12px;
+      padding: 2rem;
+      border: 1px solid var(--border);
+      transition: box-shadow 0.2s, transform 0.2s;
+    }
+    .why-card:hover {
+      box-shadow: 0 12px 36px rgba(0,0,0,.08);
+      transform: translateY(-3px);
+    }
+    .why-icon {
+      width: 52px; height: 52px;
+      background: var(--gold-pale);
+      border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.4rem;
+      margin-bottom: 1.25rem;
+    }
+    .why-card h3 { color: var(--dark); margin-bottom: 0.6rem; font-size: 1.05rem; }
+
+    /* ── VERTICALS DETAIL ── */
+    .verticals-section { background: var(--white); padding: 7rem 2rem; }
+    .verticals-inner { max-width: 1160px; margin: 0 auto; }
+    .verticals-header { text-align: center; max-width: 600px; margin: 0 auto 4rem; }
+    .vertical-row {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 4rem;
+      align-items: center;
+      padding: 4rem 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .vertical-row:last-child { border-bottom: none; }
+    .vertical-row.reverse { direction: rtl; }
+    .vertical-row.reverse > * { direction: ltr; }
+    .vr-eyebrow {
+      font-size: 0.72rem;
+      font-weight: 800;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      margin-bottom: 0.75rem;
+      display: block;
+    }
+    .vr-federal { color: var(--federal-light); }
+    .vr-teachers { color: var(--teachers); }
+    .vr-truckers { color: var(--truckers); }
+    .vertical-row h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.8rem;
+      color: var(--dark);
+      margin-bottom: 1rem;
+    }
+    .vr-list {
+      list-style: none;
+      display: flex; flex-direction: column;
+      gap: 0.6rem;
+      margin: 1.5rem 0 2rem;
+    }
+    .vr-list li {
+      display: flex; gap: 0.6rem; align-items: center;
+      font-size: 0.92rem;
+      font-weight: 500;
+      color: var(--dark);
+    }
+    .vr-list li::before { content: '→'; font-weight: 700; }
+    .vr-federal-check::before { color: var(--federal-light); }
+    .vr-teachers-check::before { color: var(--teachers); }
+    .vr-truckers-check::before { color: var(--truckers); }
+
+    .vr-panel {
+      border-radius: 16px;
+      padding: 2.5rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .vr-panel-federal {
+      background: linear-gradient(145deg, #0E2A52, #1A3F7A);
+    }
+    .vr-panel-teachers {
+      background: linear-gradient(145deg, #7A4200, #C96B00);
+    }
+    .vr-panel-truckers {
+      background: linear-gradient(145deg, #8A2A00, #D44A00);
+    }
+    .vr-panel-label {
+      font-size: 0.68rem;
+      font-weight: 800;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,.5);
+      margin-bottom: 1.25rem;
+    }
+    .vr-panel-stat {
+      margin-bottom: 1rem;
+    }
+    .vr-panel-stat-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: var(--white);
+      line-height: 1;
+    }
+    .vr-panel-stat-label {
+      font-size: 0.82rem;
+      color: rgba(255,255,255,.5);
+      margin-top: 0.2rem;
+    }
+    .vr-panel-divider {
+      height: 1px;
+      background: rgba(255,255,255,.1);
+      margin: 1.25rem 0;
+    }
+    .vr-panel-cta {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      background: rgba(255,255,255,.12);
+      border: 1px solid rgba(255,255,255,.2);
+      border-radius: 6px;
+      padding: 0.75rem 1.25rem;
+      color: var(--white);
+      text-decoration: none;
+      font-size: 0.88rem;
+      font-weight: 700;
+      transition: background 0.2s;
+    }
+    .vr-panel-cta:hover { background: rgba(255,255,255,.2); }
+
+    /* ── FINAL CTA ── */
+    .cta-section {
+      background: var(--dark);
+      padding: 8rem 2rem;
+      position: relative;
+      overflow: hidden;
+      text-align: center;
+    }
+    .cta-section::before {
+      content: '';
+      position: absolute; inset: 0;
+      background:
+        radial-gradient(ellipse at 25% 50%, rgba(201,149,42,.15), transparent 50%),
+        radial-gradient(ellipse at 75% 50%, rgba(201,149,42,.08), transparent 50%);
+      pointer-events: none;
+    }
+    .cta-inner { max-width: 680px; margin: 0 auto; position: relative; z-index: 1; }
+    .cta-inner h2 { color: var(--white); margin-bottom: 1.25rem; }
+    .cta-inner p { color: rgba(255,255,255,.55) !important; font-size: 1.1rem !important; margin-bottom: 2.5rem; }
+    .cta-actions { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+
+    .btn {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      padding: 0.95rem 2.25rem;
+      border-radius: 8px;
+      font-family: 'Manrope', sans-serif;
+      font-weight: 700;
+      font-size: 0.95rem;
+      text-decoration: none;
+      cursor: pointer;
+      border: none;
+      transition: all 0.2s;
+    }
+    .btn-gold {
+      background: var(--gold);
+      color: var(--dark);
+    }
+    .btn-gold:hover { background: var(--gold-light); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(201,149,42,.4); }
+    .btn-ghost {
+      background: transparent;
+      color: var(--white);
+      border: 2px solid rgba(255,255,255,.25);
+    }
+    .btn-ghost:hover { border-color: rgba(255,255,255,.6); background: rgba(255,255,255,.06); }
+
+    .cta-trust {
+      margin-top: 2rem;
+      display: flex; justify-content: center; gap: 2.5rem; flex-wrap: wrap;
+    }
+    .cta-trust span {
+      color: rgba(255,255,255,.35);
+      font-size: 0.8rem;
+      font-weight: 600;
+      display: flex; align-items: center; gap: 0.4rem;
+    }
+    .cta-trust span::before { content: '✓'; color: var(--gold); }
+
+    /* ── FOOTER ── */
+    .footer {
+      background: #060608;
+      padding: 3rem 2rem;
+      border-top: 1px solid rgba(255,255,255,.05);
+    }
+    .footer-inner {
+      max-width: 1160px; margin: 0 auto;
+      display: grid; grid-template-columns: 1fr 1fr 1fr;
+      gap: 3rem;
+    }
+    .footer-brand-name {
+      font-family: 'Playfair Display', serif;
+      color: var(--gold);
+      font-size: 1.1rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+    .footer-brand-desc { color: rgba(255,255,255,.3) !important; font-size: 0.85rem !important; }
+    .footer-col-title {
+      font-size: 0.72rem;
+      font-weight: 800;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,.3);
+      margin-bottom: 1rem;
+    }
+    .footer-links { list-style: none; display: flex; flex-direction: column; gap: 0.6rem; }
+    .footer-links a {
+      color: rgba(255,255,255,.4);
+      text-decoration: none;
+      font-size: 0.88rem;
+      transition: color 0.2s;
+    }
+    .footer-links a:hover { color: var(--gold); }
+    .footer-bottom {
+      max-width: 1160px; margin: 2rem auto 0;
+      padding-top: 2rem;
+      border-top: 1px solid rgba(255,255,255,.05);
+      text-align: center;
+    }
+    .footer-bottom p { font-size: 0.75rem !important; color: rgba(255,255,255,.2) !important; }
+
+    /* ── ANIMATIONS ── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .fade-up { animation: fadeUp 0.65s ease both; }
+    .d1 { animation-delay: 0.1s; }
+    .d2 { animation-delay: 0.2s; }
+    .d3 { animation-delay: 0.35s; }
+    .d4 { animation-delay: 0.5s; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 900px) {
+      .vertical-cards { grid-template-columns: 1fr; max-width: 420px; }
+      .how-grid { grid-template-columns: 1fr 1fr; }
+      .how-grid::before { display: none; }
+      .why-grid { grid-template-columns: 1fr 1fr; }
+      .vertical-row { grid-template-columns: 1fr; gap: 2rem; }
+      .vertical-row.reverse { direction: ltr; }
+      .footer-inner { grid-template-columns: 1fr; gap: 2rem; }
+    }
+    @media (max-width: 600px) {
+      .nav-links { display: none; }
+      .how-grid { grid-template-columns: 1fr; }
+      .why-grid { grid-template-columns: 1fr; }
+      .trust-items { gap: 1.5rem; }
+      .vertical-cards { max-width: 100%; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ── NAV ── -->
+<nav class="nav">
+  <a href="/" class="nav-brand">
+    <div class="nav-logo">💰</div>
+    <div>
+      <span class="nav-name">Pay and Play Checks</span>
+      <span class="nav-tagline">Insurance Specialists</span>
+    </div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#who-we-help">Who We Help</a></li>
+    <li><a href="#how">How It Works</a></li>
+    <li><a href="#quiz-section">Take the Quiz</a></li>
+    <li><a href="https://calendly.com/johnrussofinancial/30min" target="_blank" class="nav-cta">Book Free Review</a></li>
+  </ul>
+</nav>
+
+<!-- ── HERO ── -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-eyebrow fade-up">💰 Life Insurance · Retirement Income · Income Protection</div>
+    <h1 class="fade-up d1">
+      Your Job Is Unique.<br>
+      Your Coverage Should Be <em>Too.</em>
+    </h1>
+    <p class="hero-sub fade-up d2">
+      We build protection plans specifically for federal employees, teachers,
+      and truckers — because generic insurance leaves real gaps that cost
+      real families everything.
+    </p>
+
+    <!-- Vertical selector cards -->
+    <div class="vertical-cards fade-up d3">
+
+      <a href="verticals/federal-retirement/index.html" class="vcard vcard-federal">
+        <span class="vcard-emoji">🏛️</span>
+        <span class="vcard-label">Federal &amp; Government</span>
+        <h3>Federal Retirement Planning</h3>
+        <p>Maximize your FERS pension, TSP, and FEGLI. Most federal employees leave thousands on the table every year.</p>
+        <span class="vcard-arrow">I'm a Federal Employee →</span>
+      </a>
+
+      <a href="verticals/teachers/index.html" class="vcard vcard-teachers">
+        <span class="vcard-emoji">🍎</span>
+        <span class="vcard-label">Teachers &amp; Educators</span>
+        <h3>Educator Benefits &amp; Protection</h3>
+        <p>Your pension is a start — not a complete plan. Protect your family beyond what your district provides.</p>
+        <span class="vcard-arrow">I'm a Teacher →</span>
+      </a>
+
+      <a href="verticals/truckers/index.html" class="vcard vcard-truckers">
+        <span class="vcard-emoji">🚛</span>
+        <span class="vcard-label">Truckers &amp; Owner-Operators</span>
+        <h3>Trucker Coverage &amp; Income Protection</h3>
+        <p>No employer benefits. No group plan. We build the protection that self-employed truckers never had.</p>
+        <span class="vcard-arrow">I'm a Trucker →</span>
+      </a>
+
+    </div>
+
+    <p class="hero-or fade-up d4">
+      Not sure which fits you? <a href="#quiz-section">Take the 60-second quiz</a> and we'll point you in the right direction.
+    </p>
+  </div>
+</section>
+
+<!-- ── TRUST STRIP ── -->
+<div class="trust-strip">
+  <ul class="trust-items">
+    <li><span>🔒</span><span>Independent Advisors</span></li>
+    <li><span>📋</span><span>Licensed in 30+ States</span></li>
+    <li><span>🏢</span><span>40+ Carriers Compared</span></li>
+    <li><span>⭐</span><span>500+ Clients Served</span></li>
+    <li><span>💬</span><span>Free 30-Minute Review</span></li>
+    <li><span>✅</span><span>Zero Obligation — Ever</span></li>
+  </ul>
+</div>
+
+<!-- ── HOW IT WORKS ── -->
+<section id="how" class="how-section">
+  <div class="how-inner">
+    <span class="section-eyebrow">The Process</span>
+    <h2>How It Works</h2>
+    <div class="how-grid">
+      <div class="how-step">
+        <div class="how-num">1</div>
+        <h3>Pick Your Vertical</h3>
+        <p>Choose the page that matches your occupation — federal, teacher, or trucker. Each one is built specifically for your situation.</p>
+      </div>
+      <div class="how-step">
+        <div class="how-num">2</div>
+        <h3>Book Your Free Review</h3>
+        <p>Schedule a 30-minute call with a licensed specialist who knows your benefits inside and out.</p>
+      </div>
+      <div class="how-step">
+        <div class="how-num">3</div>
+        <h3>See Your Gaps Clearly</h3>
+        <p>We show you exactly what you have, what you're missing, and what it costs your family — in plain language.</p>
+      </div>
+      <div class="how-step">
+        <div class="how-num">4</div>
+        <h3>You Decide</h3>
+        <p>No pressure. No obligation. You leave the call with real information and act entirely on your own terms.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── QUIZ ── -->
+<section id="quiz-section" class="quiz-section">
+  <div class="quiz-inner">
+    <span class="section-eyebrow" style="color:var(--gold-light);">60-Second Quiz</span>
+    <h2>Not Sure Where to Start?</h2>
+    <p>Answer 3 quick questions and we'll send you to the right place — and notify a specialist to follow up.</p>
+
+    <div class="quiz-widget">
+      <div class="quiz-progress-wrap">
+        <div class="quiz-progress-bar">
+          <div class="quiz-progress-fill" id="quizFill"></div>
+        </div>
+        <span class="quiz-progress-label" id="quizLabel">Step 1 of 3</span>
+      </div>
+
+      <!-- Step 1: Who are you? -->
+      <div class="quiz-step active" id="qs1">
+        <p class="quiz-q">Which best describes your occupation?</p>
+        <div class="quiz-options">
+          <button class="quiz-option" onclick="Quiz.pick('federal-retirement', 1)">
+            <span class="quiz-option-icon">🏛️</span> Federal / Government Employee
+          </button>
+          <button class="quiz-option" onclick="Quiz.pick('teachers', 1)">
+            <span class="quiz-option-icon">🍎</span> Teacher / School Employee
+          </button>
+          <button class="quiz-option" onclick="Quiz.pick('truckers', 1)">
+            <span class="quiz-option-icon">🚛</span> Trucker / Owner-Operator / CDL Driver
+          </button>
+          <button class="quiz-option" onclick="Quiz.nextStep(1)">
+            <span class="quiz-option-icon">📋</span> Self-Employed / Other
+          </button>
+        </div>
+      </div>
+
+      <!-- Step 1b: Goal (for "other") -->
+      <div class="quiz-step" id="qs1b">
+        <p class="quiz-q">What's your biggest financial concern right now?</p>
+        <div class="quiz-options">
+          <button class="quiz-option" onclick="Quiz.pick('federal-retirement', '1b')">
+            <span class="quiz-option-icon">💰</span> Retirement income / Not outliving my money
+          </button>
+          <button class="quiz-option" onclick="Quiz.pick('teachers', '1b')">
+            <span class="quiz-option-icon">👨‍👩‍👧</span> Protecting my family if I die or get sick
+          </button>
+          <button class="quiz-option" onclick="Quiz.pick('truckers', '1b')">
+            <span class="quiz-option-icon">🤕</span> Income protection if I can't work
+          </button>
+        </div>
+      </div>
+
+      <!-- Step 2: Timeline -->
+      <div class="quiz-step" id="qs2">
+        <p class="quiz-q">When are you thinking about retirement?</p>
+        <div class="quiz-options">
+          <button class="quiz-option" onclick="Quiz.setTimeline('1-3 years'); Quiz.nextStep(2)">
+            <span class="quiz-option-icon">⏰</span> 1–3 years away
+          </button>
+          <button class="quiz-option" onclick="Quiz.setTimeline('3-10 years'); Quiz.nextStep(2)">
+            <span class="quiz-option-icon">📅</span> 3–10 years away
+          </button>
+          <button class="quiz-option" onclick="Quiz.setTimeline('10+ years'); Quiz.nextStep(2)">
+            <span class="quiz-option-icon">🌱</span> More than 10 years away
+          </button>
+          <button class="quiz-option" onclick="Quiz.setTimeline('Already retired'); Quiz.nextStep(2)">
+            <span class="quiz-option-icon">🏖️</span> Already retired / near retired
+          </button>
+        </div>
+      </div>
+
+      <!-- Step 3: Contact -->
+      <div class="quiz-step" id="qs3">
+        <p class="quiz-q">Where should we send your personalized results?</p>
+        <div class="quiz-contact">
+          <input type="text" id="qName" placeholder="Your full name" />
+          <input type="email" id="qEmail" placeholder="Email address" />
+          <input type="tel" id="qPhone" placeholder="Phone number" />
+          <select id="qState">
+            <option value="">Select your state</option>
+            <option>Alabama</option><option>Alaska</option><option>Arizona</option>
+            <option>Arkansas</option><option>California</option><option>Colorado</option>
+            <option>Connecticut</option><option>Delaware</option><option>Florida</option>
+            <option>Georgia</option><option>Hawaii</option><option>Idaho</option>
+            <option>Illinois</option><option>Indiana</option><option>Iowa</option>
+            <option>Kansas</option><option>Kentucky</option><option>Louisiana</option>
+            <option>Maine</option><option>Maryland</option><option>Massachusetts</option>
+            <option>Michigan</option><option>Minnesota</option><option>Mississippi</option>
+            <option>Missouri</option><option>Montana</option><option>Nebraska</option>
+            <option>Nevada</option><option>New Hampshire</option><option>New Jersey</option>
+            <option>New Mexico</option><option>New York</option><option>North Carolina</option>
+            <option>North Dakota</option><option>Ohio</option><option>Oklahoma</option>
+            <option>Oregon</option><option>Pennsylvania</option><option>Rhode Island</option>
+            <option>South Carolina</option><option>South Dakota</option><option>Tennessee</option>
+            <option>Texas</option><option>Utah</option><option>Vermont</option>
+            <option>Virginia</option><option>Washington</option><option>West Virginia</option>
+            <option>Wisconsin</option><option>Wyoming</option>
+          </select>
+          <button class="btn-submit" onclick="Quiz.submit()">
+            Send My Results &amp; Book My Review →
+          </button>
+          <p class="quiz-note">No spam. A licensed specialist will reach out within 24 hours.</p>
+        </div>
+      </div>
+
+      <!-- Sending state -->
+      <div class="quiz-step" id="qsSending">
+        <div class="quiz-sending">
+          <span class="quiz-sending-icon">⏳</span>
+          <h3>Saving your info...</h3>
+          <p>Redirecting you to book your free review in just a moment.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ── WHY US ── -->
+<section class="why-section">
+  <div class="why-inner">
+    <div class="why-header">
+      <span class="section-eyebrow">Why Pay and Play Checks</span>
+      <h2>Independent Advisors Who Work for You</h2>
+    </div>
+    <div class="why-grid">
+      <div class="why-card">
+        <div class="why-icon">🔍</div>
+        <h3>We Compare 40+ Carriers</h3>
+        <p>We're not captive agents pushing one company's products. We shop the full market to find the best rate and coverage for your exact situation.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">🎯</div>
+        <h3>Specialized by Occupation</h3>
+        <p>Federal benefits, teacher pensions, and trucker coverage are completely different worlds. We specialize — not generalize.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">📞</div>
+        <h3>A Real Person, Not a Call Center</h3>
+        <p>You get a dedicated specialist who knows your file, answers your calls, and does annual reviews to make sure your coverage still fits.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">💬</div>
+        <h3>Free — Always</h3>
+        <p>Our consultations are completely free. We're paid by carriers when you choose a product, so the review costs you nothing — ever.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">🛡️</div>
+        <h3>No Sales Pressure</h3>
+        <p>We show you your options and let you decide. No pushing, no quotas, no pressure. You act on your own timeline.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">📋</div>
+        <h3>Annual Policy Reviews</h3>
+        <p>Your life changes. We check in every year to make sure your coverage still matches your situation — included at no charge.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── WHO WE HELP ── -->
+<section id="who-we-help" class="verticals-section">
+  <div class="verticals-inner">
+    <div class="verticals-header">
+      <span class="section-eyebrow">Who We Help</span>
+      <h2>Built for Your Occupation, Not Just Your Age</h2>
+    </div>
+
+    <!-- Federal -->
+    <div class="vertical-row">
+      <div>
+        <span class="vr-eyebrow vr-federal">🏛️ Federal &amp; Government Employees</span>
+        <h3>Maximize Every Dollar You've Earned in Federal Service</h3>
+        <p>FERS, TSP, FEGLI — your federal benefits are complex and most employees don't optimize them. We show you exactly what you're leaving on the table.</p>
+        <ul class="vr-list">
+          <li class="vr-federal-check">FERS pension maximization</li>
+          <li class="vr-federal-check">TSP withdrawal strategy &amp; tax optimization</li>
+          <li class="vr-federal-check">FEGLI vs. private life insurance comparison</li>
+          <li class="vr-federal-check">Supplemental income through IUL or annuity</li>
+        </ul>
+        <a href="verticals/federal-retirement/index.html" class="btn btn-gold">See Federal Page →</a>
+      </div>
+      <div class="vr-panel vr-panel-federal">
+        <p class="vr-panel-label">Typical gaps we find</p>
+        <div class="vr-panel-stat">
+          <div class="vr-panel-stat-num">$1,200–$3,600</div>
+          <div class="vr-panel-stat-label">Annual FEGLI overpayment</div>
+        </div>
+        <div class="vr-panel-divider"></div>
+        <div class="vr-panel-stat">
+          <div class="vr-panel-stat-num">$800–$2,000/mo</div>
+          <div class="vr-panel-stat-label">Supplemental income gap</div>
+        </div>
+        <div class="vr-panel-divider"></div>
+        <a href="verticals/federal-retirement/index.html" class="vr-panel-cta">View Federal Page →</a>
+      </div>
+    </div>
+
+    <!-- Teachers -->
+    <div class="vertical-row reverse">
+      <div>
+        <span class="vr-eyebrow vr-teachers">🍎 Teachers &amp; School Employees</span>
+        <h3>Your Pension Is a Foundation — Not a Complete Plan</h3>
+        <p>Most teachers are underinsured, underprepared for disability, and building no supplemental retirement income alongside their pension. We close every gap.</p>
+        <ul class="vr-list">
+          <li class="vr-teachers-check">Life insurance beyond the district group plan</li>
+          <li class="vr-teachers-check">Supplemental disability from day one</li>
+          <li class="vr-teachers-check">IUL for tax-free retirement income</li>
+          <li class="vr-teachers-check">Critical illness &amp; cancer riders</li>
+        </ul>
+        <a href="verticals/teachers/index.html" class="btn btn-gold">See Teachers Page →</a>
+      </div>
+      <div class="vr-panel vr-panel-teachers">
+        <p class="vr-panel-label">What most districts actually provide</p>
+        <div class="vr-panel-stat">
+          <div class="vr-panel-stat-num">1x salary</div>
+          <div class="vr-panel-stat-label">Avg. district life coverage (10x recommended)</div>
+        </div>
+        <div class="vr-panel-divider"></div>
+        <div class="vr-panel-stat">
+          <div class="vr-panel-stat-num">60% income</div>
+          <div class="vr-panel-stat-label">Disability payout — after 90 days</div>
+        </div>
+        <div class="vr-panel-divider"></div>
+        <a href="verticals/teachers/index.html" class="vr-panel-cta">View Teachers Page →</a>
+      </div>
+    </div>
+
+    <!-- Truckers -->
+    <div class="vertical-row">
+      <div>
+        <span class="vr-eyebrow vr-truckers">🚛 Truckers &amp; Owner-Operators</span>
+        <h3>No Employer Benefits Means You're the Benefits Department</h3>
+        <p>Self-employed truckers have zero employer-provided safety net. One injury, one illness, or one bad year can wipe out everything without the right coverage in place.</p>
+        <ul class="vr-list">
+          <li class="vr-truckers-check">Life insurance for self-employed truckers</li>
+          <li class="vr-truckers-check">Disability if you can't drive</li>
+          <li class="vr-truckers-check">IUL — your own retirement savings plan</li>
+          <li class="vr-truckers-check">Annuity — guaranteed income for life</li>
+        </ul>
+        <a href="verticals/truckers/index.html" class="btn btn-gold">See Truckers Page →</a>
+      </div>
+      <div class="vr-panel vr-panel-truckers">
+        <p class="vr-panel-label">What most owner-operators have</p>
+        <div class="vr-panel-stat">
+          <div class="vr-panel-stat-num">$0</div>
+          <div class="vr-panel-stat-label">Employer-provided life insurance</div>
+        </div>
+        <div class="vr-panel-divider"></div>
+        <div class="vr-panel-stat">
+          <div class="vr-panel-stat-num">$0</div>
+          <div class="vr-panel-stat-label">Disability coverage if off the road</div>
+        </div>
+        <div class="vr-panel-divider"></div>
+        <a href="verticals/truckers/index.html" class="vr-panel-cta">View Truckers Page →</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ── FINAL CTA ── -->
+<section class="cta-section">
+  <div class="cta-inner">
+    <span class="section-eyebrow" style="color:var(--gold-light);">Get Started</span>
+    <h2 style="color:white;">One 30-Minute Call.<br>A Complete Picture.</h2>
+    <p>Free. No obligation. A licensed specialist who actually knows your occupation, your benefits, and your gaps.</p>
+    <div class="cta-actions">
+      <a href="https://calendly.com/johnrussofinancial/30min" target="_blank" class="btn btn-gold">
+        Book My Free Review →
+      </a>
+      <a href="#quiz-section" class="btn btn-ghost">
+        Take the Quiz First
+      </a>
+    </div>
+    <div class="cta-trust">
+      <span>Always free</span>
+      <span>No sales pressure</span>
+      <span>Licensed specialist</span>
+      <span>30 minutes</span>
+    </div>
+  </div>
+</section>
+
+<!-- ── FOOTER ── -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div>
+      <div class="footer-brand-name">Pay and Play Checks</div>
+      <p class="footer-brand-desc">Insurance &amp; retirement income specialists for federal employees, teachers, and truckers.</p>
+    </div>
+    <div>
+      <p class="footer-col-title">Verticals</p>
+      <ul class="footer-links">
+        <li><a href="verticals/federal-retirement/index.html">Federal Retirement</a></li>
+        <li><a href="verticals/teachers/index.html">Teachers &amp; Educators</a></li>
+        <li><a href="verticals/truckers/index.html">Truckers &amp; Owner-Operators</a></li>
+      </ul>
+    </div>
+    <div>
+      <p class="footer-col-title">Company</p>
+      <ul class="footer-links">
+        <li><a href="https://calendly.com/johnrussofinancial/30min" target="_blank">Book a Free Review</a></li>
+        <li><a href="/privacy.html">Privacy Policy</a></li>
+        <li><a href="/disclosures.html">Disclosures</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2025 Pay and Play Checks. Licensed insurance professionals. Independent — not affiliated with any government agency, school district, or employer. Product availability varies by state. This is not financial or legal advice.</p>
+  </div>
+</footer>
+
+<!-- ── QUIZ LOGIC ── -->
+<script>
+const WEBHOOK = 'https://hook.us2.make.com/ajxm62qqkaesi1oyglotr4cic8mu5mrv';
+
+const Quiz = {
+  vertical: '',
+  timeline: '',
+
+  setProgress(step) {
+    const fills = { 1: '25%', '1b': '40%', 2: '60%', 3: '85%', send: '100%' };
+    const labels = { 1: 'Step 1 of 3', '1b': 'Step 1 of 3', 2: 'Step 2 of 3', 3: 'Step 3 of 3', send: 'Almost done!' };
+    document.getElementById('quizFill').style.width = fills[step] || '25%';
+    document.getElementById('quizLabel').textContent = labels[step] || '';
+  },
+
+  showStep(id) {
+    document.querySelectorAll('.quiz-step').forEach(s => s.classList.remove('active'));
+    document.getElementById(id).classList.add('active');
+  },
+
+  pick(vertical, fromStep) {
+    this.vertical = vertical;
+    this.setProgress(2);
+    this.showStep('qs2');
+  },
+
+  nextStep(from) {
+    if (from === 1) {
+      this.setProgress('1b');
+      this.showStep('qs1b');
+    }
+  },
+
+  setTimeline(t) {
+    this.timeline = t;
+    this.setProgress(3);
+    this.showStep('qs3');
+  },
+
+  submit() {
+    const name  = document.getElementById('qName').value.trim();
+    const email = document.getElementById('qEmail').value.trim();
+    const phone = document.getElementById('qPhone').value.trim();
+    const state = document.getElementById('qState').value;
+
+    if (!name)  return alert('Please enter your name.');
+    if (!email || !email.includes('@')) return alert('Please enter a valid email.');
+    if (!phone) return alert('Please enter your phone number.');
+    if (!state) return alert('Please select your state.');
+
+    this.setProgress('send');
+    this.showStep('qsSending');
+
+    const payload = {
+      timestamp:  new Date().toISOString(),
+      name, email, phone, state,
+      vertical:   this.vertical || 'general',
+      timeline:   this.timeline,
+      source:     'homepage_quiz'
+    };
+
+    fetch(WEBHOOK, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload)
+    })
+    .then(() => this.redirect(name, email, phone))
+    .catch(() => this.redirect(name, email, phone));
+  },
+
+  redirect(name, email, phone) {
+    const params = new URLSearchParams({ name, email, a1: phone });
+    // Route to vertical page or direct to Calendly
+    const dest = this.vertical
+      ? `verticals/${this.vertical}/index.html`
+      : `https://calendly.com/johnrussofinancial/30min?${params}`;
+    window.location.href = dest;
+  }
+};
+</script>
+
+</body>
+</html>
