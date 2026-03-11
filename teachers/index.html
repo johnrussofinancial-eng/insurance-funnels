@@ -1,0 +1,1119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Teacher Benefits & Retirement Planning | Pay and Play Checks</title>
+  <meta name="description" content="Supplemental benefits designed specifically for teachers and school employees. Protect your family beyond your pension.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;0,700;1,400&family=Nunito:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --amber:        #D4820A;
+      --amber-light:  #F0A030;
+      --amber-pale:   #FFF3DC;
+      --slate-blue:   #2C4A6E;
+      --slate-mid:    #3D5F87;
+      --slate-light:  #EBF0F7;
+      --slate-dark:   #1A2E45;
+      --chalk:        #F8F6F0;
+      --white:        #FFFFFF;
+      --text:         #1E2D3D;
+      --muted:        #6B7E91;
+      --green:        #2A7A4B;
+      --green-light:  #E8F5EE;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Nunito', sans-serif;
+      background: var(--white);
+      color: var(--text);
+      line-height: 1.65;
+    }
+
+    h1, h2, h3 { font-family: 'Lora', Georgia, serif; line-height: 1.25; }
+    h1 { font-size: clamp(2.2rem, 4.5vw, 3.8rem); font-weight: 700; }
+    h2 { font-size: clamp(1.7rem, 3vw, 2.6rem); font-weight: 700; }
+    h3 { font-size: 1.15rem; font-weight: 700; }
+    p  { font-size: 1.02rem; color: var(--muted); line-height: 1.8; }
+
+    .container { max-width: 1140px; margin: 0 auto; padding: 0 2rem; }
+
+    /* ── ANNOUNCEMENT BAR ── */
+    .announcement {
+      background: var(--slate-blue);
+      padding: 0.65rem 2rem;
+      text-align: center;
+    }
+    .announcement p {
+      color: rgba(255,255,255,.9) !important;
+      font-size: 0.85rem !important;
+      font-weight: 600;
+      margin: 0;
+    }
+    .announcement strong { color: var(--amber-light); }
+
+    /* ── NAV ── */
+    .nav {
+      background: var(--chalk);
+      border-bottom: 1px solid #E0D9CC;
+      padding: 0 2rem;
+      display: flex; justify-content: space-between; align-items: center;
+      min-height: 70px;
+      position: sticky; top: 0; z-index: 100;
+      box-shadow: 0 2px 12px rgba(0,0,0,.06);
+    }
+    .nav-brand {
+      display: flex; align-items: center; gap: 0.85rem;
+      text-decoration: none;
+    }
+    .nav-brand-mark {
+      width: 40px; height: 40px;
+      background: var(--amber);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.15rem;
+    }
+    .nav-brand-name {
+      font-family: 'Lora', serif;
+      color: var(--slate-dark);
+      font-size: 1.05rem;
+      font-weight: 700;
+    }
+    .nav-brand-tag {
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--amber);
+      display: block;
+    }
+    .nav-links {
+      display: flex; align-items: center; gap: 2rem;
+      list-style: none;
+    }
+    .nav-links a {
+      color: var(--slate-blue);
+      text-decoration: none;
+      font-size: 0.88rem;
+      font-weight: 600;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--amber); }
+    .nav-cta {
+      background: var(--amber) !important;
+      color: var(--white) !important;
+      padding: 0.6rem 1.5rem;
+      border-radius: 100px;
+      font-weight: 700 !important;
+      transition: background 0.2s, transform 0.2s !important;
+    }
+    .nav-cta:hover {
+      background: var(--amber-light) !important;
+      transform: translateY(-1px) !important;
+    }
+
+    /* ── HERO ── */
+    .hero {
+      background: var(--chalk);
+      padding: 5.5rem 2rem 0;
+      overflow: hidden;
+      position: relative;
+    }
+    /* Chalkboard texture lines */
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 4px;
+      background: repeating-linear-gradient(
+        90deg,
+        var(--amber) 0px,
+        var(--amber) 40px,
+        var(--amber-light) 40px,
+        var(--amber-light) 50px,
+        transparent 50px,
+        transparent 60px
+      );
+    }
+    .hero-inner {
+      max-width: 1140px; margin: 0 auto;
+      display: grid; grid-template-columns: 1fr 380px; gap: 4rem; align-items: end;
+    }
+    .hero-label {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      background: var(--amber-pale);
+      border: 1px solid rgba(212,130,10,.2);
+      border-radius: 100px;
+      padding: 0.35rem 1rem;
+      margin-bottom: 1.5rem;
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--amber);
+      letter-spacing: 0.05em;
+    }
+    .hero h1 {
+      color: var(--slate-dark);
+      margin-bottom: 1.5rem;
+    }
+    .hero h1 em {
+      font-style: italic;
+      color: var(--amber);
+    }
+    .hero-sub {
+      color: var(--muted) !important;
+      font-size: 1.1rem !important;
+      margin-bottom: 2rem;
+      max-width: 50ch;
+    }
+    .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 3rem; }
+
+    /* ── BUTTONS ── */
+    .btn {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      padding: 0.9rem 2rem;
+      border-radius: 100px;
+      font-family: 'Nunito', sans-serif;
+      font-weight: 700;
+      font-size: 0.95rem;
+      text-decoration: none;
+      cursor: pointer;
+      border: none;
+      transition: all 0.2s;
+    }
+    .btn-amber {
+      background: var(--amber);
+      color: var(--white);
+      box-shadow: 0 4px 14px rgba(212,130,10,.3);
+    }
+    .btn-amber:hover { background: var(--amber-light); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(212,130,10,.4); }
+    .btn-outline-slate {
+      background: transparent;
+      color: var(--slate-blue);
+      border: 2px solid var(--slate-blue);
+    }
+    .btn-outline-slate:hover { background: var(--slate-blue); color: var(--white); }
+    .btn-white {
+      background: var(--white);
+      color: var(--slate-dark);
+      box-shadow: 0 4px 14px rgba(0,0,0,.1);
+    }
+    .btn-white:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,.15); }
+
+    /* ── HERO IMAGE AREA ── */
+    .hero-visual {
+      align-self: end;
+      background: var(--slate-blue);
+      border-radius: 16px 16px 0 0;
+      padding: 2rem 2rem 0;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-visual::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: radial-gradient(ellipse at top left, rgba(212,130,10,.15), transparent 60%);
+    }
+    .hv-card {
+      background: rgba(255,255,255,.08);
+      border: 1px solid rgba(255,255,255,.15);
+      border-radius: 10px;
+      padding: 1.5rem;
+      margin-bottom: 1rem;
+      position: relative; z-index: 1;
+    }
+    .hv-card-top {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--amber-light);
+      margin-bottom: 0.75rem;
+    }
+    .hv-card h4 {
+      color: var(--white);
+      font-family: 'Lora', serif;
+      font-size: 1rem;
+      margin-bottom: 0.4rem;
+    }
+    .hv-card p {
+      color: rgba(255,255,255,.55) !important;
+      font-size: 0.85rem !important;
+      margin: 0;
+    }
+    .hv-emoji { font-size: 1.5rem; margin-bottom: 0.5rem; }
+
+    /* ── SOCIAL PROOF STRIP ── */
+    .proof-strip {
+      background: var(--slate-blue);
+      padding: 1.25rem 2rem;
+    }
+    .proof-items {
+      max-width: 1140px; margin: 0 auto;
+      display: flex; justify-content: center;
+      gap: 3rem; flex-wrap: wrap;
+      list-style: none;
+    }
+    .proof-items li {
+      display: flex; align-items: center; gap: 0.5rem;
+      color: rgba(255,255,255,.85);
+      font-size: 0.85rem;
+      font-weight: 600;
+    }
+    .proof-items li span:first-child { font-size: 1.1rem; }
+
+    /* ── RELATABLE SECTION ── */
+    .relatable {
+      background: var(--white);
+      padding: 6rem 2rem;
+    }
+    .relatable-inner {
+      max-width: 1140px; margin: 0 auto;
+      display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center;
+    }
+    .section-eyebrow {
+      font-size: 0.72rem;
+      font-weight: 800;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--amber);
+      margin-bottom: 0.75rem;
+      display: block;
+    }
+    .relatable-list {
+      list-style: none;
+      display: flex; flex-direction: column; gap: 1rem;
+      margin-top: 2rem;
+    }
+    .relatable-list li {
+      display: flex; gap: 1rem; align-items: flex-start;
+      padding: 1.25rem;
+      border-radius: 10px;
+      border-left: 4px solid transparent;
+      background: var(--chalk);
+      transition: border-color 0.2s;
+    }
+    .relatable-list li:hover { border-color: var(--amber); }
+    .relatable-list li .ri { font-size: 1.4rem; flex-shrink: 0; }
+    .relatable-list li strong {
+      display: block;
+      font-size: 0.95rem;
+      color: var(--slate-dark);
+      margin-bottom: 0.2rem;
+    }
+    .relatable-list li p {
+      font-size: 0.88rem !important;
+      margin: 0;
+    }
+
+    /* Truth box */
+    .truth-box {
+      background: var(--slate-dark);
+      border-radius: 16px;
+      padding: 2.5rem;
+      color: var(--white);
+      position: relative;
+      overflow: hidden;
+    }
+    .truth-box::before {
+      content: '"';
+      position: absolute;
+      top: -20px; left: 20px;
+      font-family: 'Lora', serif;
+      font-size: 12rem;
+      color: rgba(212,130,10,.1);
+      line-height: 1;
+      pointer-events: none;
+    }
+    .truth-box-label {
+      font-size: 0.72rem;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--amber-light);
+      margin-bottom: 1.25rem;
+    }
+    .truth-box blockquote {
+      font-family: 'Lora', serif;
+      font-style: italic;
+      font-size: 1.2rem;
+      line-height: 1.7;
+      color: rgba(255,255,255,.9);
+      margin-bottom: 1.5rem;
+      position: relative; z-index: 1;
+    }
+    .truth-stats {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+      position: relative; z-index: 1;
+    }
+    .truth-stat {
+      background: rgba(255,255,255,.06);
+      border-radius: 8px;
+      padding: 1rem;
+      text-align: center;
+    }
+    .truth-stat-num {
+      font-family: 'Lora', serif;
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: var(--amber-light);
+      line-height: 1;
+    }
+    .truth-stat-label {
+      font-size: 0.78rem;
+      color: rgba(255,255,255,.5);
+      margin-top: 0.3rem;
+    }
+
+    /* ── GAPS SECTION ── */
+    .gaps-section {
+      background: var(--chalk);
+      padding: 6rem 2rem;
+    }
+    .gaps-inner { max-width: 1140px; margin: 0 auto; }
+    .gaps-header { text-align: center; max-width: 600px; margin: 0 auto 3.5rem; }
+    .gaps-header h2 { margin-bottom: 1rem; }
+    .gaps-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+    }
+    .gap-card {
+      background: var(--white);
+      border-radius: 12px;
+      padding: 2rem;
+      border: 1px solid #E8E2D9;
+      transition: box-shadow 0.2s, transform 0.2s;
+      position: relative;
+      overflow: hidden;
+    }
+    .gap-card::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 3px;
+      background: var(--amber);
+      transform: scaleX(0);
+      transition: transform 0.2s;
+    }
+    .gap-card:hover { box-shadow: 0 12px 32px rgba(0,0,0,.08); transform: translateY(-3px); }
+    .gap-card:hover::after { transform: scaleX(1); }
+    .gap-icon { font-size: 2rem; margin-bottom: 1rem; }
+    .gap-card h3 { color: var(--slate-dark); margin-bottom: 0.75rem; }
+    .gap-district {
+      display: inline-block;
+      margin-top: 1rem;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--amber);
+      background: var(--amber-pale);
+      padding: 0.25rem 0.75rem;
+      border-radius: 100px;
+    }
+
+    /* ── WHAT WE OFFER ── */
+    .offer-section {
+      background: var(--slate-blue);
+      padding: 6rem 2rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .offer-section::before {
+      content: '';
+      position: absolute;
+      bottom: -80px; right: -80px;
+      width: 400px; height: 400px;
+      background: radial-gradient(circle, rgba(212,130,10,.15), transparent 70%);
+    }
+    .offer-inner { max-width: 1140px; margin: 0 auto; position: relative; z-index: 1; }
+    .offer-header { margin-bottom: 3.5rem; }
+    .offer-header h2 { color: var(--white); }
+    .offer-header p { color: rgba(255,255,255,.6) !important; max-width: 55ch; margin-top: 1rem; }
+    .offer-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.5rem;
+    }
+    .offer-card {
+      background: rgba(255,255,255,.06);
+      border: 1px solid rgba(255,255,255,.1);
+      border-radius: 12px;
+      padding: 2rem;
+      display: flex; gap: 1.5rem;
+      transition: background 0.2s, border-color 0.2s;
+    }
+    .offer-card:hover {
+      background: rgba(255,255,255,.1);
+      border-color: rgba(212,130,10,.4);
+    }
+    .offer-card-icon {
+      width: 52px; height: 52px;
+      background: rgba(212,130,10,.2);
+      border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.4rem;
+      flex-shrink: 0;
+    }
+    .offer-card h3 { color: var(--white); margin-bottom: 0.5rem; font-size: 1.05rem; }
+    .offer-card p { color: rgba(255,255,255,.55) !important; font-size: 0.9rem !important; }
+    .offer-card-tag {
+      display: inline-block;
+      margin-top: 0.75rem;
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--amber-light);
+      background: rgba(212,130,10,.15);
+      padding: 0.2rem 0.6rem;
+      border-radius: 100px;
+    }
+
+    /* ── HOW IT WORKS ── */
+    .how-section {
+      background: var(--white);
+      padding: 6rem 2rem;
+    }
+    .how-inner { max-width: 1140px; margin: 0 auto; }
+    .how-header { text-align: center; max-width: 580px; margin: 0 auto 4rem; }
+    .how-steps {
+      display: grid; grid-template-columns: repeat(4, 1fr);
+      gap: 1.5rem;
+      position: relative;
+    }
+    .how-connector {
+      position: absolute;
+      top: 36px; left: 12%; right: 12%;
+      height: 2px;
+      background: repeating-linear-gradient(90deg, var(--amber) 0, var(--amber) 8px, transparent 8px, transparent 16px);
+    }
+    .how-step { text-align: center; position: relative; z-index: 1; }
+    .how-num {
+      width: 72px; height: 72px;
+      background: var(--white);
+      border: 3px solid var(--amber);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 1.25rem;
+      font-family: 'Lora', serif;
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--amber);
+      box-shadow: 0 4px 16px rgba(212,130,10,.2);
+    }
+    .how-step h3 { font-size: 1rem; color: var(--slate-dark); margin-bottom: 0.5rem; }
+    .how-step p { font-size: 0.88rem !important; }
+
+    /* ── TESTIMONIALS ── */
+    .testimonials-section {
+      background: var(--chalk);
+      padding: 6rem 2rem;
+    }
+    .testimonials-inner { max-width: 1140px; margin: 0 auto; }
+    .testimonials-header { text-align: center; margin-bottom: 3.5rem; }
+    .testimonials-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+    }
+    .testimonial-card {
+      background: var(--white);
+      border-radius: 12px;
+      padding: 2rem;
+      border: 1px solid #E8E2D9;
+      position: relative;
+    }
+    .testimonial-card::before {
+      content: '"';
+      font-family: 'Lora', serif;
+      font-size: 4rem;
+      color: var(--amber-pale);
+      line-height: 1;
+      position: absolute;
+      top: 1rem; left: 1.5rem;
+    }
+    .tc-stars {
+      color: var(--amber);
+      font-size: 0.85rem;
+      margin-bottom: 1rem;
+      letter-spacing: 0.1em;
+    }
+    .tc-quote {
+      font-style: italic;
+      color: var(--slate-dark) !important;
+      font-size: 0.95rem !important;
+      line-height: 1.7 !important;
+      margin-bottom: 1.5rem;
+    }
+    .tc-author {
+      display: flex; align-items: center; gap: 0.75rem;
+      padding-top: 1rem;
+      border-top: 1px solid var(--slate-light);
+    }
+    .tc-avatar {
+      width: 42px; height: 42px;
+      background: var(--amber-pale);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.1rem;
+    }
+    .tc-name { font-weight: 700; font-size: 0.88rem; color: var(--slate-dark); }
+    .tc-role { font-size: 0.78rem; color: var(--muted); }
+
+    /* ── FAQ ── */
+    .faq-section { background: var(--white); padding: 6rem 2rem; }
+    .faq-inner { max-width: 760px; margin: 0 auto; }
+    .faq-inner h2 { text-align: center; margin-bottom: 3rem; }
+    details {
+      border: 1px solid #E8E2D9;
+      border-radius: 10px;
+      margin-bottom: 0.85rem;
+      overflow: hidden;
+    }
+    details[open] { border-color: rgba(212,130,10,.4); box-shadow: 0 4px 16px rgba(212,130,10,.08); }
+    summary {
+      padding: 1.25rem 1.5rem;
+      font-weight: 700;
+      font-size: 0.98rem;
+      cursor: pointer;
+      color: var(--slate-dark);
+      list-style: none;
+      display: flex; justify-content: space-between; align-items: center;
+      background: var(--chalk);
+      transition: background 0.2s;
+    }
+    details[open] summary { background: var(--amber-pale); }
+    summary::-webkit-details-marker { display: none; }
+    summary::after {
+      content: '+';
+      font-size: 1.4rem;
+      color: var(--amber);
+      font-weight: 300;
+    }
+    details[open] summary::after { content: '−'; }
+    .faq-answer {
+      padding: 1.25rem 1.5rem;
+      color: var(--muted);
+      font-size: 0.95rem;
+      line-height: 1.8;
+      background: var(--white);
+    }
+
+    /* ── FINAL CTA ── */
+    .cta-section {
+      background: linear-gradient(135deg, var(--slate-dark) 0%, var(--slate-blue) 100%);
+      padding: 7rem 2rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .cta-section::before {
+      content: '🍎';
+      position: absolute;
+      font-size: 20rem;
+      opacity: 0.04;
+      right: -2rem;
+      top: 50%;
+      transform: translateY(-50%);
+      pointer-events: none;
+    }
+    .cta-inner {
+      max-width: 680px; margin: 0 auto;
+      text-align: center; position: relative; z-index: 1;
+    }
+    .cta-inner h2 { color: var(--white); margin-bottom: 1.25rem; }
+    .cta-inner p { color: rgba(255,255,255,.65) !important; font-size: 1.1rem !important; margin-bottom: 2.5rem; }
+    .cta-actions { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+    .cta-trust {
+      margin-top: 2rem;
+      display: flex; justify-content: center; gap: 2rem; flex-wrap: wrap;
+    }
+    .cta-trust span {
+      color: rgba(255,255,255,.4);
+      font-size: 0.8rem;
+      font-weight: 600;
+      display: flex; align-items: center; gap: 0.35rem;
+    }
+    .cta-trust span::before { content: '✓'; color: var(--amber-light); }
+
+    /* ── FOOTER ── */
+    .footer {
+      background: var(--slate-dark);
+      border-top: 1px solid rgba(255,255,255,.06);
+      padding: 2.5rem 2rem;
+    }
+    .footer-inner {
+      max-width: 1140px; margin: 0 auto;
+      display: flex; justify-content: space-between; align-items: center;
+      flex-wrap: wrap; gap: 1rem;
+    }
+    .footer-brand {
+      font-family: 'Lora', serif;
+      color: var(--amber-light);
+      font-size: 1rem;
+      font-weight: 700;
+    }
+    .footer p { color: rgba(255,255,255,.3) !important; font-size: 0.8rem !important; }
+    .footer-links { display: flex; gap: 1.5rem; }
+    .footer-links a { color: rgba(255,255,255,.3); text-decoration: none; font-size: 0.8rem; transition: color 0.2s; }
+    .footer-links a:hover { color: var(--amber-light); }
+    .footer-legal {
+      max-width: 1140px; margin: 1.5rem auto 0;
+      padding-top: 1.5rem;
+      border-top: 1px solid rgba(255,255,255,.06);
+      text-align: center;
+    }
+    .footer-legal p { font-size: 0.75rem !important; color: rgba(255,255,255,.2) !important; }
+
+    /* ── ANIMATIONS ── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .fade-up { animation: fadeUp 0.6s ease both; }
+    .d1 { animation-delay: 0.1s; }
+    .d2 { animation-delay: 0.2s; }
+    .d3 { animation-delay: 0.3s; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 900px) {
+      .hero-inner { grid-template-columns: 1fr; }
+      .hero-visual { display: none; }
+      .relatable-inner { grid-template-columns: 1fr; }
+      .gaps-grid { grid-template-columns: 1fr 1fr; }
+      .offer-grid { grid-template-columns: 1fr; }
+      .how-steps { grid-template-columns: 1fr 1fr; }
+      .how-connector { display: none; }
+      .testimonials-grid { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 600px) {
+      .nav-links { display: none; }
+      .gaps-grid { grid-template-columns: 1fr; }
+      .how-steps { grid-template-columns: 1fr; }
+      .proof-items { gap: 1.25rem; }
+      .truth-stats { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ── ANNOUNCEMENT ── -->
+<div class="announcement">
+  <p>🍎 <strong>Educator Special:</strong> Free benefits review for teachers &amp; school staff — <strong>no cost, no obligation, just answers.</strong></p>
+</div>
+
+<!-- ── NAV ── -->
+<nav class="nav">
+  <a href="/" class="nav-brand">
+    <div class="nav-brand-mark">💰</div>
+    <div>
+      <span class="nav-brand-name">Pay and Play Checks</span>
+      <span class="nav-brand-tag">Educator Benefits</span>
+    </div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#gaps">Coverage Gaps</a></li>
+    <li><a href="#offer">What We Offer</a></li>
+    <li><a href="#how">How It Works</a></li>
+    <li><a href="#faq">FAQ</a></li>
+    <li><a href="https://calendly.com/johnrussofinancial/30min" target="_blank" class="nav-cta">Free Educator Review</a></li>
+  </ul>
+</nav>
+
+<!-- ── HERO ── -->
+<section class="hero">
+  <div class="hero-inner">
+    <div>
+      <div class="hero-label fade-up">🍎 For Teachers &amp; School Employees</div>
+      <h1 class="fade-up d1">
+        You Give Everything<br>to Your Students.<br>
+        <em>Who's Protecting You?</em>
+      </h1>
+      <p class="hero-sub fade-up d2">
+        Your pension is a foundation — not a complete plan. Most teachers are
+        underinsured, underprepared for disability, and leaving retirement
+        income on the table. We fix that.
+      </p>
+      <div class="hero-actions fade-up d3">
+        <a href="quiz.html" class="btn btn-amber">
+          Book My Free Educator Review →
+        </a>
+        <a href="#gaps" class="btn btn-outline-slate">See the Gaps</a>
+      </div>
+    </div>
+
+    <!-- Visual Cards -->
+    <div class="hero-visual fade-up d3">
+      <div class="hv-card">
+        <div class="hv-emoji">💔</div>
+        <div class="hv-card-top">Most teachers don't know this</div>
+        <h4>Your pension pays $0 if you die before retirement</h4>
+        <p>Your family needs life insurance — your district's group plan likely isn't enough.</p>
+      </div>
+      <div class="hv-card">
+        <div class="hv-emoji">🤕</div>
+        <div class="hv-card-top">The coverage gap</div>
+        <h4>Disability plans replace only 60% of income</h4>
+        <p>And only after a 90-day waiting period. A supplemental policy fills the rest.</p>
+      </div>
+      <div class="hv-card" style="background:rgba(212,130,10,.15);border-color:rgba(212,130,10,.3);">
+        <div class="hv-card-top" style="color:var(--amber-light);">The good news</div>
+        <h4 style="color:white;">We close these gaps — free review, 30 minutes</h4>
+        <p>No jargon. No pressure. Just a clear picture of where you stand.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── PROOF STRIP ── -->
+<div class="proof-strip">
+  <ul class="proof-items">
+    <li><span>🍎</span><span>Educator Specialists</span></li>
+    <li><span>📋</span><span>Works Alongside Your Pension</span></li>
+    <li><span>💊</span><span>No Medical Exam Options</span></li>
+    <li><span>💵</span><span>Payroll Deduction Available</span></li>
+    <li><span>🔒</span><span>Independent — Not District Affiliated</span></li>
+  </ul>
+</div>
+
+<!-- ── RELATABLE ── -->
+<section class="relatable">
+  <div class="relatable-inner">
+    <div>
+      <span class="section-eyebrow">Sound familiar?</span>
+      <h2>Every Teacher We Talk to Says the Same Things</h2>
+      <ul class="relatable-list">
+        <li>
+          <span class="ri">😟</span>
+          <div>
+            <strong>"I assumed my district covered me."</strong>
+            <p>Most district plans offer 1x salary in life coverage — far below the recommended 10x for a family with dependents.</p>
+          </div>
+        </li>
+        <li>
+          <span class="ri">😰</span>
+          <div>
+            <strong>"I didn't know disability could wipe us out."</strong>
+            <p>A 90-day gap before benefits kick in — and only 60% coverage after — can devastate a household budget fast.</p>
+          </div>
+        </li>
+        <li>
+          <span class="ri">😔</span>
+          <div>
+            <strong>"I thought the pension was enough."</strong>
+            <p>Pensions create income in retirement. They don't protect your family before retirement or fill the income gap after.</p>
+          </div>
+        </li>
+        <li>
+          <span class="ri">🤷</span>
+          <div>
+            <strong>"I didn't know I had other options."</strong>
+            <p>Private life insurance, supplemental disability, and IUL strategies exist specifically for educators. Most teachers never hear about them.</p>
+          </div>
+        </li>
+      </ul>
+    </div>
+
+    <div class="truth-box">
+      <div class="truth-box-label">The Reality for Most Teachers</div>
+      <blockquote>
+        The average teacher retires with a pension that replaces 60–70% of their salary.
+        That gap — and the years before retirement — is where families get hurt.
+      </blockquote>
+      <div class="truth-stats">
+        <div class="truth-stat">
+          <div class="truth-stat-num">1x</div>
+          <div class="truth-stat-label">Avg. district life coverage (vs. 10x recommended)</div>
+        </div>
+        <div class="truth-stat">
+          <div class="truth-stat-num">60%</div>
+          <div class="truth-stat-label">Income replaced by most disability plans</div>
+        </div>
+        <div class="truth-stat">
+          <div class="truth-stat-num">90</div>
+          <div class="truth-stat-label">Days before disability benefits begin</div>
+        </div>
+        <div class="truth-stat">
+          <div class="truth-stat-num">$0</div>
+          <div class="truth-stat-label">Pension payout if you die before collecting</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── GAPS ── -->
+<section id="gaps" class="gaps-section">
+  <div class="gaps-inner">
+    <div class="gaps-header">
+      <span class="section-eyebrow">The Coverage Gaps</span>
+      <h2>What Your Pension &amp; District Plan Leave Open</h2>
+      <p>These aren't hypothetical — they're the gaps we find in nearly every educator review.</p>
+    </div>
+    <div class="gaps-grid">
+      <div class="gap-card">
+        <div class="gap-icon">💔</div>
+        <h3>Death Before Retirement</h3>
+        <p>If you pass away before you begin collecting your pension, your family receives very little. Life insurance bridges that gap immediately — from day one.</p>
+        <span class="gap-district">Life Insurance Gap</span>
+      </div>
+      <div class="gap-card">
+        <div class="gap-icon">🤕</div>
+        <h3>Short &amp; Long-Term Disability</h3>
+        <p>Your district plan covers 60% of your income — after 90 days. That's 3 months with no paycheck. Supplemental disability covers the gap from day one.</p>
+        <span class="gap-district">Income Protection Gap</span>
+      </div>
+      <div class="gap-card">
+        <div class="gap-icon">💸</div>
+        <h3>Early Retirement Penalty</h3>
+        <p>Retiring before your full pension age significantly reduces your monthly benefit — sometimes permanently. We show you strategies to offset that loss.</p>
+        <span class="gap-district">Pension Gap</span>
+      </div>
+      <div class="gap-card">
+        <div class="gap-icon">📉</div>
+        <h3>The Retirement Income Gap</h3>
+        <p>Your pension replaces 60–70% of your salary. The remaining 30–40% has to come from somewhere. An IUL creates tax-free income to fill it.</p>
+        <span class="gap-district">Retirement Income Gap</span>
+      </div>
+      <div class="gap-card">
+        <div class="gap-icon">🏥</div>
+        <h3>Critical Illness &amp; Cancer</h3>
+        <p>A serious diagnosis can derail even solid financial plans. A critical illness rider gives you a lump-sum cash benefit to cover expenses your health insurance won't.</p>
+        <span class="gap-district">Health Gap</span>
+      </div>
+      <div class="gap-card">
+        <div class="gap-icon">👨‍👩‍👧</div>
+        <h3>Family Protection After You</h3>
+        <p>Most educator life coverage ends when employment ends. If you change districts, retire early, or become ill, your family could be left exposed.</p>
+        <span class="gap-district">Portability Gap</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── WHAT WE OFFER ── -->
+<section id="offer" class="offer-section">
+  <div class="offer-inner">
+    <div class="offer-header">
+      <span class="section-eyebrow" style="color:var(--amber-light);">What We Do</span>
+      <h2 style="color:white;">Benefits Built for How Educators Actually Live</h2>
+      <p>We work exclusively with products that complement teacher pensions — not compete with them. Every recommendation fits your district, your state pension, and your family.</p>
+    </div>
+    <div class="offer-grid">
+      <div class="offer-card">
+        <div class="offer-card-icon">🛡️</div>
+        <div>
+          <h3>Term &amp; Whole Life Insurance</h3>
+          <p>Coverage sized to your family's actual needs — not your employer's one-size-fits-all group plan. Portable, affordable, and independent of your district.</p>
+          <span class="offer-card-tag">Family Protection</span>
+        </div>
+      </div>
+      <div class="offer-card">
+        <div class="offer-card-icon">🩺</div>
+        <div>
+          <h3>Supplemental Disability Insurance</h3>
+          <p>Covers the income gap your district's plan leaves behind — from day one, not day 91. Especially critical for single-income households.</p>
+          <span class="offer-card-tag">Income Protection</span>
+        </div>
+      </div>
+      <div class="offer-card">
+        <div class="offer-card-icon">📈</div>
+        <div>
+          <h3>IUL — Tax-Free Retirement Income</h3>
+          <p>An Indexed Universal Life policy builds cash value that grows with the market, with no downside risk. Withdraw tax-free to supplement your pension in retirement.</p>
+          <span class="offer-card-tag">Tax-Free Growth</span>
+        </div>
+      </div>
+      <div class="offer-card">
+        <div class="offer-card-icon">💰</div>
+        <div>
+          <h3>Guaranteed Retirement Income (Annuity)</h3>
+          <p>For educators approaching retirement, an annuity can provide guaranteed monthly income for life — filling the gap between your pension and your actual expenses.</p>
+          <span class="offer-card-tag">Lifetime Income</span>
+        </div>
+      </div>
+      <div class="offer-card">
+        <div class="offer-card-icon">⚡</div>
+        <div>
+          <h3>Critical Illness &amp; Cancer Riders</h3>
+          <p>A lump-sum cash benefit paid directly to you at diagnosis — to cover medical bills, mortgage payments, or anything else that doesn't stop when you get sick.</p>
+          <span class="offer-card-tag">Health Protection</span>
+        </div>
+      </div>
+      <div class="offer-card">
+        <div class="offer-card-icon">📋</div>
+        <div>
+          <h3>Annual Benefit Reviews</h3>
+          <p>Your district, salary, family, and goals change over time. We review your coverage every year to make sure it still fits — at no extra charge.</p>
+          <span class="offer-card-tag">Ongoing Support</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── HOW IT WORKS ── -->
+<section id="how" class="how-section">
+  <div class="how-inner">
+    <div class="how-header">
+      <span class="section-eyebrow">The Process</span>
+      <h2>Your Free Review — Start to Finish</h2>
+      <p>Simple. No homework required. No pressure at any step.</p>
+    </div>
+    <div class="how-steps">
+      <div class="how-connector"></div>
+      <div class="how-step">
+        <div class="how-num">1</div>
+        <h3>Pick Your Time</h3>
+        <p>Choose a 30-minute slot that works for you — evenings and weekends available.</p>
+      </div>
+      <div class="how-step">
+        <div class="how-num">2</div>
+        <h3>We Review Your Benefits</h3>
+        <p>A specialist walks through your current district coverage, pension, and family situation.</p>
+      </div>
+      <div class="how-step">
+        <div class="how-num">3</div>
+        <h3>You See the Gaps</h3>
+        <p>We show you exactly what's covered, what's not, and what it costs you — in plain English.</p>
+      </div>
+      <div class="how-step">
+        <div class="how-num">4</div>
+        <h3>You Decide</h3>
+        <p>No obligation. No pressure. You leave with real information and act on your own terms.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── TESTIMONIALS ── -->
+<section class="testimonials-section">
+  <div class="testimonials-inner">
+    <div class="testimonials-header">
+      <span class="section-eyebrow">What Educators Are Saying</span>
+      <h2>Teachers Who Got Their Review</h2>
+    </div>
+    <div class="testimonials-grid">
+      <div class="testimonial-card">
+        <div class="tc-stars">★★★★★</div>
+        <p class="tc-quote">I had no idea my district's life insurance would end the day I retired. Now I have a private policy that follows me wherever I go. Wish I'd done this sooner.</p>
+        <div class="tc-author">
+          <div class="tc-avatar">👩</div>
+          <div>
+            <div class="tc-name">Jennifer M.</div>
+            <div class="tc-role">High School English Teacher, 14 Years</div>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-card">
+        <div class="tc-stars">★★★★★</div>
+        <p class="tc-quote">My husband and I are both teachers. We thought we were covered. Turns out we had almost no real protection. The review opened our eyes — and we actually saved money.</p>
+        <div class="tc-author">
+          <div class="tc-avatar">👩</div>
+          <div>
+            <div class="tc-name">Rachel T.</div>
+            <div class="tc-role">Elementary School Teacher, 9 Years</div>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-card">
+        <div class="tc-stars">★★★★★</div>
+        <p class="tc-quote">I'm 8 years from retirement and just started an IUL. The tax-free income I'll have alongside my pension changes everything. Should have done this at year one.</p>
+        <div class="tc-author">
+          <div class="tc-avatar">👨</div>
+          <div>
+            <div class="tc-name">David K.</div>
+            <div class="tc-role">Middle School Math Teacher, 22 Years</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── FAQ ── -->
+<section id="faq" class="faq-section">
+  <div class="faq-inner">
+    <h2>Questions Teachers Ask Us</h2>
+
+    <details>
+      <summary>Does my district already provide enough coverage?</summary>
+      <div class="faq-answer">Most districts offer 1x your annual salary in group life insurance. For a teacher earning $55,000, that's $55,000 — the industry recommendation for a family with dependents is 10–12x salary. There's almost always a significant gap.</div>
+    </details>
+
+    <details>
+      <summary>Can I get coverage without a medical exam?</summary>
+      <div class="faq-answer">Yes. Several carriers offer simplified issue life insurance up to $500,000 with no medical exam required. We'll identify the best no-exam options based on your age and health situation.</div>
+    </details>
+
+    <details>
+      <summary>How does an IUL work alongside my pension?</summary>
+      <div class="faq-answer">Your pension is taxable income in retirement. An IUL creates a second bucket of tax-free income you can draw from without pushing yourself into a higher tax bracket — giving you significantly more flexibility and net income in retirement.</div>
+    </details>
+
+    <details>
+      <summary>I'm early in my career — is it worth doing now?</summary>
+      <div class="faq-answer">Absolutely — the earlier the better. Life insurance premiums are lowest when you're young and healthy. An IUL started at 28 creates dramatically more tax-free wealth than one started at 45. Time is your biggest advantage.</div>
+    </details>
+
+    <details>
+      <summary>Are you affiliated with my school district or union?</summary>
+      <div class="faq-answer">No. We are completely independent. We are not affiliated with any school district, teacher's union, or state pension system. We work for you — not your employer — and our recommendations are based solely on what's best for your family.</div>
+    </details>
+
+    <details>
+      <summary>What does the free review actually cover?</summary>
+      <div class="faq-answer">In 30 minutes we review your current district coverage, your state pension details, your family situation, and your retirement timeline. You'll leave knowing exactly what gaps exist and what it costs to close them — with zero obligation to buy anything.</div>
+    </details>
+  </div>
+</section>
+
+<!-- ── FINAL CTA ── -->
+<section class="cta-section">
+  <div class="cta-inner">
+    <span class="section-eyebrow" style="color:var(--amber-light);">You've Earned This</span>
+    <h2>30 Minutes for the Person<br>Who Gives Everything to Others</h2>
+    <p>You spend your days protecting and investing in your students. Let us spend 30 minutes making sure you and your family are actually protected.</p>
+    <div class="cta-actions">
+      <a href="quiz.html" class="btn btn-amber">
+        Book My Free Educator Review →
+      </a>
+      <a href="quiz.html" class="btn btn-white">
+        Take the Quiz First
+      </a>
+    </div>
+    <div class="cta-trust">
+      <span>Free — always</span>
+      <span>No sales pressure</span>
+      <span>Licensed specialist</span>
+      <span>30 minutes</span>
+    </div>
+  </div>
+</section>
+
+<!-- ── FOOTER ── -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div>
+      <div class="footer-brand">Pay and Play Checks</div>
+      <p style="margin-top:0.4rem;">Educator Benefits Specialists</p>
+    </div>
+    <div class="footer-links">
+      <a href="/privacy.html">Privacy Policy</a>
+      <a href="/disclosures.html">Disclosures</a>
+      <a href="quiz.html">Book a Call</a>
+    </div>
+  </div>
+  <div class="footer-legal">
+    <p>Licensed insurance professionals. Independent — not affiliated with any school district, teacher's union, or state pension system. Product availability varies by state. This is not financial or legal advice.</p>
+  </div>
+</footer>
+
+</body>
+</html>

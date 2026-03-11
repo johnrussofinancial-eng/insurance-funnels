@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Federal Retirement Readiness Quiz</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f4f6f9;
+    color: #1b1f23;
+}
+
+.container {
+    max-width: 700px;
+    margin: 50px auto;
+    padding: 20px;
+    text-align: center;
+}
+
+h1 {
+    color: #0A1F44;
+}
+
+.question {
+    display: none;
+}
+
+.active {
+    display: block;
+}
+
+button {
+    display: block;
+    width: 100%;
+    padding: 14px;
+    margin: 10px 0;
+    border: none;
+    border-radius: 5px;
+    background-color: #C9A227;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+button:hover {
+    opacity: 0.9;
+}
+
+select, input[type="text"], input[type="email"], input[type="tel"] {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    border-radius: 5px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
+.progress {
+    height: 8px;
+    background: #ddd;
+    border-radius: 4px;
+    margin-bottom: 20px;
+}
+
+.progress-bar {
+    height: 8px;
+    width: 0%;
+    background: #0A1F44;
+    border-radius: 4px;
+    transition: width 0.3s ease;
+}
+
+.footer {
+    margin-top: 40px;
+    font-size: 12px;
+    color: #555;
+}
+
+.contact-label {
+    text-align: left;
+    font-size: 14px;
+    font-weight: bold;
+    color: #0A1F44;
+    margin-top: 10px;
+}
+
+.sending-msg {
+    font-size: 16px;
+    color: #0A1F44;
+    margin-top: 20px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>Federal Employee Retirement Assessment</h1>
+<p>Answer 7 quick questions to evaluate your retirement readiness.</p>
+
+<div class="progress">
+    <div class="progress-bar" id="progressBar"></div>
+</div>
+
+<!-- STATE DROPDOWN -->
+<div class="question active" id="q0">
+<h3>What state are you currently located in?</h3>
+<select id="stateSelect">
+<option value="">Select Your State</option>
+<option>Alabama</option><option>Alaska</option><option>Arizona</option>
+<option>Arkansas</option><option>California</option><option>Colorado</option>
+<option>Connecticut</option><option>Delaware</option><option>Florida</option>
+<option>Georgia</option><option>Hawaii</option><option>Idaho</option>
+<option>Illinois</option><option>Indiana</option><option>Iowa</option>
+<option>Kansas</option><option>Kentucky</option><option>Louisiana</option>
+<option>Maine</option><option>Maryland</option><option>Massachusetts</option>
+<option>Michigan</option><option>Minnesota</option><option>Mississippi</option>
+<option>Missouri</option><option>Montana</option><option>Nebraska</option>
+<option>Nevada</option><option>New Hampshire</option><option>New Jersey</option>
+<option>New Mexico</option><option>New York</option><option>North Carolina</option>
+<option>North Dakota</option><option>Ohio</option><option>Oklahoma</option>
+<option>Oregon</option><option>Pennsylvania</option><option>Rhode Island</option>
+<option>South Carolina</option><option>South Dakota</option><option>Tennessee</option>
+<option>Texas</option><option>Utah</option><option>Vermont</option>
+<option>Virginia</option><option>Washington</option><option>West Virginia</option>
+<option>Wisconsin</option><option>Wyoming</option>
+</select>
+<button onclick="submitState()">Continue</button>
+</div>
+
+<!-- Q1 -->
+<div class="question" id="q1">
+<h3>Are you currently a federal employee?</h3>
+<button onclick="next('FERS')">Yes – FERS</button>
+<button onclick="next('CSRS')">Yes – CSRS</button>
+<button onclick="next('Hybrid')">Yes – Military / Hybrid</button>
+<button onclick="next('No')">No</button>
+</div>
+
+<!-- Q2 -->
+<div class="question" id="q2">
+<h3>How many years of federal service do you have?</h3>
+<button onclick="next('0-5')">0–5 years</button>
+<button onclick="next('6-15')">6–15 years</button>
+<button onclick="next('16-25')">16–25 years</button>
+<button onclick="next('25+')">25+ years</button>
+</div>
+
+<!-- Q3 -->
+<div class="question" id="q3">
+<h3>When are you planning to retire?</h3>
+<button onclick="next('1-3 years')">1–3 years</button>
+<button onclick="next('3-7 years')">3–7 years</button>
+<button onclick="next('7+ years')">7+ years</button>
+<button onclick="next('Not sure')">Not sure yet</button>
+</div>
+
+<!-- Q4 -->
+<div class="question" id="q4">
+<h3>Do you feel confident you understand your:</h3>
+<button onclick="next('Pension')">FERS/CSRS pension</button>
+<button onclick="next('TSP')">TSP withdrawal strategy</button>
+<button onclick="next('FEGLI')">FEGLI options</button>
+<button onclick="next('FEHB')">FEHB in retirement</button>
+<button onclick="next('Not sure')">I'm honestly not sure</button>
+</div>
+
+<!-- Q5 -->
+<div class="question" id="q5">
+<h3>Have you had a personalized federal retirement analysis done?</h3>
+<button onclick="next('Yes')">Yes</button>
+<button onclick="next('No')">No</button>
+<button onclick="next('Seminar only')">Only seminar/webinar</button>
+</div>
+
+<!-- Q6 -->
+<div class="question" id="q6">
+<h3>Would you like a complimentary federal retirement review?</h3>
+<button onclick="showContactForm()">Yes – Schedule My Review</button>
+<button onclick="showResult()">Maybe – More Information</button>
+<button onclick="showResult()">Not right now</button>
+</div>
+
+<!-- CONTACT FORM (new step) -->
+<div class="question" id="qContact">
+<h3>Where should we send your retirement review details?</h3>
+<p style="color:#555; font-size:14px;">We'll use this to confirm your appointment and send preparation materials.</p>
+
+<div class="contact-label">Full Name *</div>
+<input type="text" id="contactName" placeholder="Your full name" />
+
+<div class="contact-label">Email Address *</div>
+<input type="email" id="contactEmail" placeholder="your@email.com" />
+
+<div class="contact-label">Phone Number *</div>
+<input type="tel" id="contactPhone" placeholder="(555) 555-5555" />
+
+<button onclick="submitContact()" style="margin-top:20px;">Schedule My Review →</button>
+</div>
+
+<!-- RESULT -->
+<div class="question" id="result">
+<h3>Your Retirement Strategy May Have Gaps</h3>
+<p>Many federal employees miss optimization opportunities in pension coordination, TSP strategy, and benefit timing.</p>
+<button onclick="showContactForm()">Schedule My Review</button>
+</div>
+
+<!-- SENDING -->
+<div class="question" id="sending">
+<p class="sending-msg">⏳ Saving your information and redirecting to scheduling...</p>
+</div>
+
+<div class="footer">
+Retirement strategy consultations are educational in nature. 
+Product recommendations are subject to state licensing and suitability requirements.
+</div>
+
+</div>
+
+<script>
+
+let current = 0;
+const totalSteps = 8; // now 8 steps including contact
+
+let answers = {
+    state: "",
+    employeeType: "",
+    yearsService: "",
+    retirementTimeline: "",
+    confidenceArea: "",
+    priorAnalysis: "",
+    name: "",
+    email: "",
+    phone: ""
+};
+
+function updateProgress() {
+    let percent = (current / totalSteps) * 100;
+    document.getElementById("progressBar").style.width = percent + "%";
+}
+
+function submitState() {
+    let selectedState = document.getElementById("stateSelect").value;
+    if (!selectedState) return alert("Please select your state.");
+    answers.state = selectedState;
+    next();
+}
+
+function next(answer) {
+    if (current === 1) answers.employeeType = answer;
+    if (current === 2) answers.yearsService = answer;
+    if (current === 3) answers.retirementTimeline = answer;
+    if (current === 4) answers.confidenceArea = answer;
+    if (current === 5) answers.priorAnalysis = answer;
+
+    document.getElementById("q" + current).classList.remove("active");
+    current++;
+
+    if (current <= 6) {
+        document.getElementById("q" + current).classList.add("active");
+    }
+
+    updateProgress();
+}
+
+function showResult() {
+    document.getElementById("q" + current).classList.remove("active");
+    document.getElementById("result").classList.add("active");
+}
+
+function showContactForm() {
+    // Hide whatever is currently showing
+    const activeEls = document.querySelectorAll(".active");
+    activeEls.forEach(el => el.classList.remove("active"));
+    document.getElementById("qContact").classList.add("active");
+    current = 7;
+    updateProgress();
+}
+
+function submitContact() {
+    const name = document.getElementById("contactName").value.trim();
+    const email = document.getElementById("contactEmail").value.trim();
+    const phone = document.getElementById("contactPhone").value.trim();
+
+    if (!name) return alert("Please enter your name.");
+    if (!email || !email.includes("@")) return alert("Please enter a valid email address.");
+    if (!phone) return alert("Please enter your phone number.");
+
+    answers.name = name;
+    answers.email = email;
+    answers.phone = phone;
+
+    // Show sending screen
+    document.getElementById("qContact").classList.remove("active");
+    document.getElementById("sending").classList.add("active");
+    current = 8;
+    updateProgress();
+
+    goToCalendly();
+}
+
+function goToCalendly() {
+    const webhookURL = "https://hook.us2.make.com/ajxm62qqkaesi1oyglotr4cic8mu5mrv";
+
+    const payload = {
+        timestamp: new Date().toISOString(),
+        name: answers.name,
+        email: answers.email,
+        phone: answers.phone,
+        state: answers.state,
+        employeeType: answers.employeeType,
+        yearsService: answers.yearsService,
+        retirementTimeline: answers.retirementTimeline,
+        confidenceArea: answers.confidenceArea,
+        priorAnalysis: answers.priorAnalysis,
+        funnel: "Federal"
+    };
+
+    fetch(webhookURL, {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(payload)
+    })
+    .then(() => {
+        // Prefill Calendly with name, email, phone
+        const params = new URLSearchParams({
+            name: answers.name,
+            email: answers.email,
+            a1: answers.phone
+        });
+        window.location.href = "https://calendly.com/johnrussofinancial/30min?" + params.toString();
+    })
+    .catch(() => {
+        // Even if webhook fails, still redirect
+        const params = new URLSearchParams({
+            name: answers.name,
+            email: answers.email,
+            a1: answers.phone
+        });
+        window.location.href = "https://calendly.com/johnrussofinancial/30min?" + params.toString();
+    });
+}
+
+updateProgress();
+
+</script>
+
+</body>
+</html>
